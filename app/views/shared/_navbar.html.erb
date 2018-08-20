@@ -28,7 +28,7 @@
             <i class="fa fa-user"></i> <%= t(".profile", default: "Your Account") %>
             <% end %>
             <%else%>
-             <%= link_to subscriptions_path  do %>
+             <%= link_to subscription_path(current_user.subscription_id)  do %>
              <i class="fa fa-user"></i> <%= t(".profile", default: "Your Account") %>
               <% end %>
            <% end %>
@@ -74,7 +74,7 @@
            <i class="fa fa-user"></i> <%= t(".profile", default: "Your Account") %>
             <% end %>
             <%else%>
-             <%= link_to subscriptions_path do %>
+             <%= link_to subscription_path(current_user.subscription_id)  do %>
                <i class="fa fa-user"></i> <%= t(".profile", default: "Your Account") %>
               <% end %>
            <% end %>
