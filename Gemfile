@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.4.4'
+ruby '2.5.1'
 
 gem 'bootsnap', require: false
 gem 'jbuilder', '~> 2.0'
@@ -11,9 +11,7 @@ gem 'money-rails'
 gem 'stripe'
 
 gem 'autoprefixer-rails'
-gem 'bootstrap-sass', '~> 3.3'
 gem 'font-awesome-sass', '~> 5.0.9'
-gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
@@ -28,6 +26,9 @@ gem 'dotenv-rails', groups: [:development, :test]
 gem "geocoder"
 gem "figaro"
 gem 'mailjet'
+gem "autoprefixer-rails"
+gem 'bootstrap-sass', '3.3.7'
+gem 'sass-rails', '5.0.6'
 
 
 
@@ -43,4 +44,5 @@ group :development, :test do
   gem 'spring-watcher-listen', '~> 2.0.0'
 
 end
+
 

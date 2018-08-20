@@ -90,8 +90,6 @@ ActiveRecord::Schema.define(version: 2019_02_14_185604) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "email_confirmed"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
     t.string "confirm_token"
     t.boolean "has_profile"
     t.bigint "subscription_id"

@@ -1,12 +1,15 @@
 class MessagesController < ApplicationController
     def new
+
    @message = Message.new()
+   raise
    @first_value = params[:parent_id]
    @receving_parent = Parent.find(@first_value)
    session[:passed_variable] = @first_value
   end
 
   def create
+
    @message = Message.new(message_params)
    @first_value = session[:passed_variable]
    @receving_parent_id = @first_value
