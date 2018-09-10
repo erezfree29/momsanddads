@@ -1,1 +1,24 @@
-<h1>parents are here</h1>
+
+     <div class="row all_parents">
+      <% @parents.each do|parents|  %>
+      <div class="col-xs-12 col-lg-2" style="margin-bottom: 20px;">
+       <div class="card1">
+         <div class="image_link">
+          <div make_card_link>
+            <%= link_to parent_path(parent) do %>
+            <div class="card1 caaaard" style="background:linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.35)),url(<%=cl_image_path "#{parent.photo}"%>); border: solid white 1px;box-shadow: 5px 5px 5px;background-position: center; ">
+
+            </div>
+            <%end%>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <% end %>
+  </div>
+
+
+<div class="create_profile"><%= link_to "create a profile",  new_parent_path, class: "become-parent-link btn-primary" %>
+</div>
+
