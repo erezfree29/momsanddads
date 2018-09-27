@@ -218,6 +218,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activestorage
   autoprefixer-rails
   aws-sdk-s3
   bootsnap
