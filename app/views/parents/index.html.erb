@@ -1,5 +1,11 @@
 
-     <div class="row all_parents">
+<div class="banner" id="home-banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://res.cloudinary.com/erezfriemagor/image/upload/v1536598730/pexels-photo-225017_1.jpg');">
+  <center><h1>Moms and Dads</h1><
+    <h2>find someome right to have kids with</h2>
+
+
+
+    <div class="row all_parents">
       <% @parents.each do|parents|  %>
       <div class="col-xs-12 col-lg-2" style="margin-bottom: 20px;">
        <div class="card1">
@@ -19,6 +25,33 @@
   </div>
 
 
-<div class="create_profile"><%= link_to "create a profile",  new_parent_path, class: "become-parent-link btn-primary" %>
+  <div class="create_profile"><%= link_to "create a profile",  new_parent_path, class: "become-parent-link btn-primary" %>
+  </div>
 </div>
+
+<style>
+
+#home-banner
+
+{
+
+  margin-top:-20px;
+}
+
+h1{
+
+  padding-top:130px;
+  color:#ff66cc;
+  font-size:120px;
+}
+
+h2
+{
+
+  color: #66ccff;
+  margin-bottom:90px;
+
+}
+
+</style>
 
