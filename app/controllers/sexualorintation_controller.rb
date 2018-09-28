@@ -1,0 +1,2 @@
+class SexualorintationController < ApplicationController
+end

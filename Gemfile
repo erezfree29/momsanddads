@@ -18,6 +18,11 @@ gem 'webpacker'
 gem 'devise'
 gem "aws-sdk-s3", require: false
 gem 'activestorage'
+gem "country-select"
+gem 'cloudinary'
+gem 'carrierwave', '~> 1.2'
+
+
 
 group :development do
   gem 'web-console', '>= 3.3.0'

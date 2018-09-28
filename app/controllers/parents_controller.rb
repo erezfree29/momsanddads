@@ -17,5 +17,25 @@ skip_before_action :authenticate_user!
 
  end
 
+ def create
+  @user = current_user
+  @parent = Parent.new(parent_params)
+
+  if @trainer.save
+    redirect_to parent_path(@parent)
+
+  else
+     render :new
+
+  end
+
+end
+
+def parent_params
+
+
+  params.require(:parent).permit(:name, :sexual_orientation, :photo, :country,:town, :neighborhood)
+
+ end
 
 end

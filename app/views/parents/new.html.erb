@@ -1,1 +1,118 @@
-<h1>new paret</h1>
+
+<div class="banner profile" id="home-banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://images.pexels.com/photos/939702/pexels-photo-939702.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');">
+<h3>create a profile and make the first step</h3>
+
+<div class="create_profile">
+   <%= simple_form_for Parent.new do |f| %>
+   <div class="input">name</div>
+   <%= f.input :name,label: false%>
+   <div class="input">sexual orientation</div>
+   <%= f.collection_select(:sexualorientation_id, Sexualorientation.all, :id, :orientation) %>
+   <div class="input" >country</div>
+   <%= f.collection_select(:countrie_id, Countrie.all, :id, :name) %>
+   <div class="input">*town</div>
+   <%= f.input :town,:label => false %>
+   <div class="input">neighborhood</div>
+   <%= f.input :neighborhood,:label => false %>
+   <div class="input">upload a photo</div>
+   <%= f.input :photo,:label => false %>
+   <%= f.input :photo_cache, as: :hidden %>
+
+    <div><%= f.button :submit,'submit', class: "btn-success training_btn"%><% end %>
+
+
+
+
+   </div>
+ </div>
+</div>
+<style>
+
+h3
+
+{
+
+  color:white;
+
+}
+.profile
+
+{
+  margin-top:-25px;
+
+}
+.create_profile
+
+ {
+    width:15vw;
+   color:black;
+   margin-left:10px;
+
+ }
+
+.input
+ {
+ font-size: 2.3vh;
+ font-weight: lighter;
+ color: white;
+ font-style: bold;
+ height: 2vh;
+ margin-bottom: 1.7vh;
+ }
+
+select
+{
+
+  width:281px;
+  height:4vh;
+
+}
+
+
+
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- .create_training
+
+ {
+    width:15vw;
+   margin-left:-155vh;
+   margin-top:0.5vh;
+   color:black;
+
+ }
+
+ .training_btn
+ {
+
+ margin-top: 3.5vh;
+ width: 10vw;
+
+ }
+
+ .tra_inp_field
+ {
+ font-size: 2.3vh;
+ font-weight: lighter;
+ color: white;
+ font-style: bold;
+ height: 2vh;
+ margin-bottom: 1.7vh;
+ }
+
+ .button, select {
+
+     width: 15vw;
+ }
+ -->
