@@ -15,9 +15,6 @@ Countrie.destroy_all
 
 p 'Creating countries'
 
-
-
-
 Countrie.create(name: "united Kingdom")
 Countrie.create(name: "united states")
 Countrie.create(name: "Afghanistan")
@@ -212,6 +209,27 @@ Countrie.create(name: "Vietnam")
 Countrie.create(name: "Yemen")
 Countrie.create(name: "Zambia")
 Countrie.create(name: "Zimbabwe")
+
+p 'deleting sexualorientation'
+
+Sexualorientation.destroy_all
+
+p 'creating sexualorientation'
+
+Sexualorientation.create(orientation: "straight man")
+Sexualorientation.create(orientation: "straight woman")
+Sexualorientation.create(orientation: "gay man")
+Sexualorientation.create(orientation: "lesbian woman")
+Sexualorientation.create(orientation: "gay couple")
+Sexualorientation.create(orientation: "lesbian couple")
+Sexualorientation.create(orientation: "transgender man")
+Sexualorientation.create(orientation: "transgender woman")
+
+
+
+
+
+
 
 
 
