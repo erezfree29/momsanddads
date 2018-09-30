@@ -18,7 +18,7 @@ gem 'webpacker'
 gem 'devise'
 gem "aws-sdk-s3", require: false
 gem 'activestorage'
-gem "country-select"
+gem "font-awesome-rails"
 gem 'cloudinary'
 gem 'carrierwave', '~> 1.2'
 
