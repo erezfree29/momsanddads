@@ -34,7 +34,7 @@ end
 def parent_params
 
 
-  params.require(:parent).permit(:name, :sexual_orientation, :photo, :country,:town, :neighborhood)
+  params.require(:parent).permit(:name, :sexual_orientation, :photo, :country,:town, :neighborhood, :age)
 
  end
 

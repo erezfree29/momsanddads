@@ -1,27 +1,31 @@
 
 <div class="banner profile" id="home-banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://images.pexels.com/photos/939702/pexels-photo-939702.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');">
-<h3>create a profile and make the first step</h3>
+<h3>create a profile and <br>
+make the first step</h3>
 
 <div class="create_profile">
    <%= simple_form_for Parent.new do |f| %>
    <div class="input">name</div>
    <%= f.input :name,label: false%>
    <div class="input">sexual orientation</div>
-   <%= f.collection_select(:sexualorientation_id, Sexualorientation.all, :id, :orientation) %>
+   <%= f.collection_select(:sexualorientation_id, Sexualorientation.all, :id, :orientation,onchange: "JoinedOrNot()") %>
+    <div class="input">age</div>
+   <%= f.select :age, [['20-30'],['31-40'],['41-50'],['50-60']]%>
+   <div class="input" >preferred co-parent</div>
+   <%= f.select :intrested, [['stright man'],['stright woman'],['gay man'],['lesbian woman'],['gay couple'],['lesbian couple'],['transgender man'],['transgender woman'],['other'],['not known/open to ideas']]%>
    <div class="input" >country</div>
    <%= f.collection_select(:countrie_id, Countrie.all, :id, :name) %>
    <div class="input">*town</div>
    <%= f.input :town,:label => false %>
    <div class="input">neighborhood</div>
    <%= f.input :neighborhood,:label => false %>
+   <div class="input about">tell us about yourself</div>
+   <%= f.text_area :about, size: "20x10" %>
    <div class="input">upload a photo</div>
    <%= f.input :photo,:label => false %>
    <%= f.input :photo_cache, as: :hidden %>
 
     <div><%= f.button :submit,'submit', class: "btn-success training_btn"%><% end %>
-
-
-
 
    </div>
  </div>
@@ -33,6 +37,7 @@ h3
 {
 
   color:white;
+  margin-left:10px;
 
 }
 .profile
@@ -65,17 +70,60 @@ select
 
   width:281px;
   height:4vh;
+  font-size:2vh;
 
+
+}
+
+.training_btn
+
+{
+
+  margin-bottom:-230px
+}
+
+.aboutpartner
+{
+
+  margin-top:-30px;
+}
+
+.aboutpartnerfield
+{
+  color:black;
 }
 
 
 
 </style>
 
+<script>
 
 
 
+let select = document.getElementsByTagName("select")[0];
+select.onchange = function () {
 
+
+
+     if ((select.value == 7) || (select.value == 8)) {
+     let inputfield = document.createElement("div");
+     let textareafiled = document.createElement("textarea");
+     textareafiled.classList.add('aboutpartnerfield');
+     inputfield.classList.add('input');
+     inputfield.classList.add('aboutpartner');
+     let node = document.createTextNode("about your partner\n");
+     inputfield.appendChild(node);
+     let form = document.querySelector('.simple_form');
+     form.appendChild(inputfield);
+     inputfield.appendChild(textareafiled);
+
+    }
+
+};
+
+
+</script>
 
 
 
