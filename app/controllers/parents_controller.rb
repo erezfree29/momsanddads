@@ -8,7 +8,7 @@ skip_before_action :authenticate_user!
  end
 
  def new
-   if user_signed_in?
+  if user_signed_in?
   @user = current_user
   @parent = Parent.new()
   @parent.user_id = @user.id
@@ -20,22 +20,27 @@ skip_before_action :authenticate_user!
  def create
   @user = current_user
   @parent = Parent.new(parent_params)
+  @parent.user_id = @user.id
 
-  if @trainer.save
-    redirect_to parent_path(@parent)
+  if @parent.save
+    redirect_to parents_path(@parent)
 
   else
+
      render :new
 
   end
 
 end
 
+private
+
 def parent_params
 
 
-  params.require(:parent).permit(:name, :sexual_orientation, :photo, :country,:town, :neighborhood, :age)
+  params.require(:parent).permit(:name, :sorientation, :photo, :countryname,:town, :neighborhood, :age)
 
  end
 
 end
+

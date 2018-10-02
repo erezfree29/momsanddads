@@ -8,23 +8,22 @@ make the first step</h3>
    <div class="input">name</div>
    <%= f.input :name,label: false%>
    <div class="input">sexual orientation</div>
-   <%= f.collection_select(:sexualorientation_id, Sexualorientation.all, :id, :orientation,onchange: "JoinedOrNot()") %>
+   <%= f.collection_select(:sorientation, Sexualorientation.all, :orientation, :orientation)%>
     <div class="input">age</div>
    <%= f.select :age, [['20-30'],['31-40'],['41-50'],['50-60']]%>
    <div class="input" >preferred co-parent</div>
    <%= f.select :intrested, [['stright man'],['stright woman'],['gay man'],['lesbian woman'],['gay couple'],['lesbian couple'],['transgender man'],['transgender woman'],['other'],['not known/open to ideas']]%>
    <div class="input" >country</div>
-   <%= f.collection_select(:countrie_id, Countrie.all, :id, :name) %>
+   <%= f.collection_select(:countryname, Countrie.all, :name, :name) %>
    <div class="input">*town</div>
    <%= f.input :town,:label => false %>
    <div class="input">neighborhood</div>
    <%= f.input :neighborhood,:label => false %>
    <div class="input about">tell us about yourself</div>
-   <%= f.text_area :about, size: "20x10" %>
-   <div class="input">upload a photo</div>
+   <%= f.text_area :about, size: "20x10" ,id: 'about_field' %>
+   <div class="input photo">upload a photo</div>
    <%= f.input :photo,:label => false %>
    <%= f.input :photo_cache, as: :hidden %>
-
     <div><%= f.button :submit,'submit', class: "btn-success training_btn"%><% end %>
 
    </div>
@@ -79,7 +78,7 @@ select
 
 {
 
-  margin-bottom:-230px
+  margin-bottom:-310px
 }
 
 .aboutpartner
@@ -91,6 +90,44 @@ select
 .aboutpartnerfield
 {
   color:black;
+  width:15vw;
+  height:12vh;
+
+}
+
+@media (min-width:1200px){
+.about
+
+{
+
+margin-left: 400px;
+margin-top: -559px;
+width: 250px;
+margin-bottom: 260px;
+
+
+}
+
+#about_field
+{
+
+  margin-left: 400px;
+  margin-top: -241px;
+  margin-bottom: 325px;
+  width:450px;
+  height:180px;
+
+
+
+}
+
+.photo
+
+{
+ margin-top:10px;
+
+}
+
 }
 
 
@@ -116,6 +153,7 @@ select.onchange = function () {
      inputfield.appendChild(node);
      let form = document.querySelector('.simple_form');
      form.appendChild(inputfield);
+     textareafiled.name = "parent[partner]";
      inputfield.appendChild(textareafiled);
 
     }

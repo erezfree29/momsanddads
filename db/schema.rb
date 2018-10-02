@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_01_113523) do
+ActiveRecord::Schema.define(version: 2018_10_02_174820) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,17 +28,14 @@ ActiveRecord::Schema.define(version: 2018_10_01_113523) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
-    t.bigint "sexualorientation_id"
     t.string "neighborhood"
-    t.bigint "countrie_id"
-    t.bigint "users_id"
     t.string "age"
     t.string "intrested"
     t.string "about"
-    t.index ["countrie_id"], name: "index_parents_on_countrie_id"
-    t.index ["sexualorientation_id"], name: "index_parents_on_sexualorientation_id"
+    t.string "partner"
+    t.string "sorientation"
+    t.string "countryname"
     t.index ["user_id"], name: "index_parents_on_user_id"
-    t.index ["users_id"], name: "index_parents_on_users_id"
   end
 
   create_table "sexualorientations", force: :cascade do |t|
@@ -59,8 +56,5 @@ ActiveRecord::Schema.define(version: 2018_10_01_113523) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "parents", "countries", column: "countrie_id"
-  add_foreign_key "parents", "sexualorientations"
   add_foreign_key "parents", "users"
-  add_foreign_key "parents", "users", column: "users_id"
 end
