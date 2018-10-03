@@ -12,7 +12,7 @@ make the first step</h3>
     <div class="input">age</div>
    <%= f.select :age, [['20-30'],['31-40'],['41-50'],['50-60']]%>
    <div class="input" >preferred co-parent</div>
-   <%= f.select :intrested, [['stright man'],['stright woman'],['gay man'],['lesbian woman'],['gay couple'],['lesbian couple'],['transgender man'],['transgender woman'],['other'],['not known/open to ideas']]%>
+   <%= f.select :intrested, [['straight man'],['straight woman'],['gay man'],['lesbian woman'],['gay couple'],['lesbian couple'],['transgender man'],['transgender woman'],['other'],['not known/open to ideas']]%>
    <div class="input" >country</div>
    <%= f.collection_select(:countryname, Countrie.all, :name, :name) %>
    <div class="input">*town</div>
@@ -31,12 +31,14 @@ make the first step</h3>
 </div>
 <style>
 /**/
+
+@media (min-width:1200px){
 h3
 
 {
 
   color:white;
-  margin-left:10px;
+  margin-left:5px;
 
 }
 .profile
@@ -85,17 +87,22 @@ select
 {
 
   margin-top:-30px;
+  margin-left: 400px;
+  margin-top: -466px;
+  width:236px
 }
 
 .aboutpartnerfield
 {
+  margin-left: 400px;
   color:black;
-  width:15vw;
+  width: 447px;
   height:12vh;
+  margin-top: 10px;
 
 }
 
-@media (min-width:1200px){
+
 .about
 
 {
@@ -130,6 +137,100 @@ margin-bottom: 260px;
 
 }
 
+@media (max-width:1200px){
+
+ .input
+
+ {
+   margin-left:5px;
+
+ }
+
+  select
+{
+  margin-left:5px;
+  width:150px;
+  height:4vh;
+  font-size:1.5vh;
+
+
+}
+
+#parent_name
+{
+  margin-left:5px;
+  width:150px;
+  height:4vh;
+  font-size:1.5vh;
+}
+
+#parent_town
+{
+  margin-left:5px;
+  width:150px;
+  height:4vh;
+  font-size:1.5vh;
+}
+
+#parent_neighborhood
+{
+  margin-left:5px;
+  width:150px;
+  height:4vh;
+  font-size:1.5vh;
+}
+
+.about
+
+{
+  margin-left:5px;
+
+}
+
+#about_field
+
+{
+  margin-left:5px;
+  height:120px;
+
+}
+
+.training_btn
+
+{
+
+  margin-bottom:-800px;
+  margin-left:5px;
+}
+
+.aboutpartnerfield
+{
+
+  margin-top:10px;
+  color:black;
+  width:80vw;
+  height:20vh;
+  margin-left:5px;
+
+}
+
+.aboutpartner
+{
+
+  margin-top:-40px;
+}
+h3
+
+{
+
+  color:white;
+  margin-left:5px;
+
+}
+
+
+ }
+
 
 
 </style>
@@ -137,13 +238,23 @@ margin-bottom: 260px;
 <script>
 
 
-
+let count = 0
 let select = document.getElementsByTagName("select")[0];
 select.onchange = function () {
 
 
+    let creatediv = document.createElement('div');
+    let selectnode = document.createTextNode(select.value);
+    let form = document.querySelector('.simple_form');
+    creatediv.appendChild(selectnode);
+    form.appendChild(creatediv);
+    creatediv.style.visibility = 'hidden';
+    let inner = creatediv.innerHTML;
+    count +=1;
 
-     if ((select.value == 5) || (select.value == 6)) {
+     if ((inner == "gay couple") || (inner == 'lesbian couple'))
+      if (count == 1) {
+     {
      let inputfield = document.createElement("div");
      let textareafiled = document.createElement("textarea");
      textareafiled.classList.add('aboutpartnerfield');
@@ -154,9 +265,11 @@ select.onchange = function () {
      let form = document.querySelector('.simple_form');
      form.appendChild(inputfield);
      textareafiled.name = "parent[partner]";
-     inputfield.appendChild(textareafiled);
+     form.appendChild(textareafiled);
+   }
 
     }
+
 
 };
 
