@@ -1,0 +1,250 @@
+
+<% content_for :meta_description, @parent.sorientation%>
+
+ <div class="trainershowwrapper" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%=image_path "sunset.jpg"%>);">
+   <div class="trainershowcontainer">
+     <div class="trainershowfirstrow">
+       <div class="trainershowprofilebox">
+        <div class="destroy">
+
+<%if user_signed_in?%>
+  <%if @parent.user_id == current_user.id%>
+    <%= button_to 'delete profile',@parent , method: :delete, :onclick => "return confirm('Are you sure you want to delete this service?')" %>
+   <%end%>
+   <%end%>
+
+
+
+   <%#= link_to "Delete this service", trainer_path(@trainer.id),
+      method: :delete,
+      data: { confirm: "Are you sure?" } %>
+
+    </div>
+         <div class="trainershowcircle" style="background-image: url(<%=@parent.photo%>)"></div>
+       </div>
+       <div class="trainershowinformations">
+        <div class="small">
+         <div class="trainershowinforow">Name: <%=@parent.name=%> <%=@parent.name=%></div>
+         <div class="trainershowinforow">Sexual Orientation: <%=@parent.sorientation=%> </div>
+         <div class="trainershowinforow">Country: <%=@parent.countryname%> </div>
+         <div class="trainershowinforow">City/Town:  <%=@parent.town=%> </div>
+         <div class="trainershowinforow">Neighborhood: <%=@parent.neighborhood=%></div>
+         <div class="trainershowinforow">Age: <%=@parent.age=%></div>
+         <div class="trainershowinforow">Intrested in: <%=@parent.intrested=%></div>
+       </div>
+       </div>
+     </div>
+   </div>
+ </div>
+
+
+
+
+<!-- trainer_review GET    /trainers/:trainer_id/reviews/:id(.:format)  -->
+
+
+<script>
+  document.getElementById("animatiombtn").addEventListener("mouseover",function(){
+    document.getElementById("animationcarc").style.opacity = 1;
+    document.getElementById("animationcarc").style.transform = 'translate(573%)';
+  });
+  document.getElementById("animatiombtn").addEventListener("mouseout",function(){
+    document.getElementById("animationcarc").style.opacity = 0;
+    document.getElementById("animationcarc").style.transform = 'translate(0%)';
+  });
+</script>
+
+<style>
+.see
+
+{
+
+  margin-top:-150px;
+
+}
+.calendar
+{
+
+ margin-top:20px;
+ margin-left:20px;
+
+}
+  .trainershowfirstrow{
+     height: 69%;
+     width: 100%;
+     /*background-color: green;*/
+     display: flex;
+   }
+
+ .trainershowinforow{
+     height: calc(100%/6);
+     border-bottom: 3px solid grey;
+     display: flex;
+     align-items: center;
+     color: white;
+     font-size:25px;
+     border-radius: 5px;
+     padding-left: 5%;
+   }
+   @media (max-width: 480px) {
+
+
+   .trainershowinforow{
+    margin-top:4vh;
+    font-size:4.98vw;
+    margin-left:-25vw;
+
+   }
+
+      .btn-lg
+      {
+          padding: 16px 205px;
+          padding-left: 50px;
+          margin-left: -260px;
+          padding-left: 24px;
+          margin-bottom:-20px;
+      }
+
+   }
+
+@media (min-width: 481px) {
+  body.trainershowinforow{
+    margin-top:6vh;
+    font-size:8vw;
+    margin-left:-90vw;
+
+}
+.btn-lg
+      {
+          width:30vw;
+          margin-left:-30vw;
+      }
+
+
+}
+
+
+@media (min-width: 1200px) {
+  body.trainershowinforow{
+    margin-top:6vh;
+    font-size:15vw;
+
+
+}
+.btn-lg
+      {
+          width:13vw;
+          margin-right:5vw;
+          margin-left:6vw;
+
+      }
+
+
+}
+
+
+.destroy
+{
+
+  font-size:20px;
+}
+
+
+
+ * {
+   -moz-box-sizing: border-box;
+   -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+   .trainershowwrapper{
+     width: 100vw;
+     height: 90vh;
+     background-size: cover;
+     /*background-position: center;*/
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     /*background-color: red;*/
+   }    .trainershowcontainer{
+     width: 80%;
+     height: 80%;
+     background-color: rgba(224,224,224,.35);
+     padding: 30px;
+     border-radius: 10px;
+     overflow: hidden;
+   }
+
+   .trainershowsecondrow{
+     height: 30%;
+     width: 100%;
+     display: flex;
+     justify-content: space-between;
+     /*background-color: black;*/
+   }
+   .trainershowprofilebox{
+     height: 100%;
+     width: 25%;
+
+   }
+
+
+   .trainershowcircle {
+     position: relative;
+     border-radius: 49.99%;
+     width: 100%;
+     height: auto;
+     padding-top: 70%;
+     background-size: cover;
+     padding-bottom: 30%;
+     border: solid 1px white;
+     box-shadow: 3px 3px 3px 3px;
+   }
+
+   .trainershowinforow:hover{
+     background-color: rgba(0,0,0,.35);
+   }
+
+   .diogobtn{
+    width: 100%;
+      a{
+      width: 100%;
+      }
+    }
+    .gifbox{
+      opacity: 0;
+      transition: opacity ease 1s;
+      transition: transform linear 4s;
+    }
+
+.trainer-img {
+  height: 454px;
+width: 463px;
+border-radius: 50%;
+position: cover;
+margin-left: -3vw;
+margin-bottom: 16vh;
+margin-top: -42vh;
+background-position:center;
+}
+
+   .trainershowinformations{
+     height: 100%;
+     width: 74.99%;
+     /*background-color: yellow;*/
+     padding: 35px;
+   }
+
+   .tsbtnbox{
+     width: 25%;
+     height: 100%;
+     /*background-color: black;*/
+     display: flex;
+     align-items: flex-end;
+   }
+
+ </style>
+
+
+
+
+

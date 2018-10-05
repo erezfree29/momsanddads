@@ -34,6 +34,18 @@ skip_before_action :authenticate_user!
 
 end
 
+def show
+
+    @parent = Parent.find(params[:id])
+end
+
+def destroy
+  @parent = Parent.find(params[:id])
+  @parent.destroy
+
+
+end
+
 private
 
 def parent_params
