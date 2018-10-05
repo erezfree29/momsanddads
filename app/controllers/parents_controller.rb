@@ -18,10 +18,11 @@ skip_before_action :authenticate_user!
  end
 
  def create
-  @user = current_user
-  @parent = Parent.new(parent_params)
-  @parent.user_id = @user.id
-
+   @parent = Parent.new(parent_params)
+   if user_signed_in?
+    @user = current_user
+    @parent.user_id = @user.id
+   end
   if @parent.save
     redirect_to parents_path(@parent)
 
