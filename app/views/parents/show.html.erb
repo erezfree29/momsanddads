@@ -1,8 +1,7 @@
 
 <% content_for :meta_description, @parent.sorientation%>
-
+<div class="trainershowcontainer">
  <div class="trainershowwrapper" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%=image_path "sunset.jpg"%>);">
-   <div class="trainershowcontainer">
      <div class="trainershowfirstrow">
        <div class="trainershowprofilebox">
         <div class="destroy">
@@ -24,13 +23,34 @@
        </div>
        <div class="trainershowinformations">
         <div class="small">
-         <div class="trainershowinforow">Name: <%=@parent.name=%> <%=@parent.name=%></div>
-         <div class="trainershowinforow">Sexual Orientation: <%=@parent.sorientation=%> </div>
-         <div class="trainershowinforow">Country: <%=@parent.countryname%> </div>
-         <div class="trainershowinforow">City/Town:  <%=@parent.town=%> </div>
-         <div class="trainershowinforow">Neighborhood: <%=@parent.neighborhood=%></div>
-         <div class="trainershowinforow">Age: <%=@parent.age=%></div>
-         <div class="trainershowinforow">Intrested in: <%=@parent.intrested=%></div>
+         <div class="trainershowinforow"><div class="underline">Name</div>: <%=@parent.name=%> <%=@parent.name=%></div>
+         <div class="trainershowinforow"><div class="underline">Sexual Orientation: </div><%=@parent.sorientation=%> </div>
+         <div class="trainershowinforow"><div class="underline">Country:</div><%=@parent.countryname%> </div>
+         <div class="trainershowinforow"><div class="underline">City/Town:</div><%=@parent.town=%> </div>
+         <div class="trainershowinforow"><div class="underline">Neighborhood:</div><%=@parent.neighborhood=%></div>
+         <div class="trainershowinforow"><div class="underline">Age:</div><%=@parent.age=%></div>
+         <div class="trainershowinforow"><div class="underline">preferred co-parent:</div><%=@parent.intrested=%></div>
+         <div class="trainershowinforow"><div class="underline">about me:</div></div><div class="white"><%=@parent.about=%></div>
+         <% if @parent.partner != ""%>
+            <div class="trainershowinforow"><div class="underline">about my partner:</div></div><div class="white"><%=@parent.partner=%></div>
+         <%end%>
+          <% if @parent.sorientation == "straight man"%> %>
+          <style> .underline{color:rgb(153, 255, 51);}</style>
+           <% elsif @parent.sorientation == "gay couple"%>
+           <style> .underline{color:rgb(153, 204, 255);}</style>
+           <% elsif @parent.sorientation == "lesbian couple"%>
+           <style> .underline{color:rgb(255, 255, 0)};</style>
+           <% elsif @parent.sorientation == "straight woman"%>
+           <style> .underline{color:rgb(153, 204, 0)};</style>
+           <% elsif @parent.sorientation == "lesbian woman"%>
+           <style> .underline{color:rgb(255, 102, 102);}</style>
+           <% elsif @parent.sorientation == "gay man"%>
+           <style> .underline{color:rgb(204, 0, 153);}</style>
+           <% elsif @parent.sorientation == "transgender man"%>
+           <style> .underline{color:rgb(153, 153, 102);}</style>
+           <%else%>
+            <style> .underline{color:rgb(153, 0, 255);}</style>
+          <%end%>
        </div>
        </div>
      </div>
@@ -55,6 +75,17 @@
 </script>
 
 <style>
+
+.white
+{
+  color:white;
+  margin-left:71px;
+}
+.underline
+{
+  text-decoration:underline;
+
+}
 .see
 
 {
@@ -86,7 +117,7 @@
      border-radius: 5px;
      padding-left: 5%;
    }
-   @media (max-width: 480px) {
+   @media (max-width: 767px) {
 
 
    .trainershowinforow{
@@ -96,51 +127,9 @@
 
    }
 
-      .btn-lg
-      {
-          padding: 16px 205px;
-          padding-left: 50px;
-          margin-left: -260px;
-          padding-left: 24px;
-          margin-bottom:-20px;
-      }
 
    }
 
-@media (min-width: 481px) {
-  body.trainershowinforow{
-    margin-top:6vh;
-    font-size:8vw;
-    margin-left:-90vw;
-
-}
-.btn-lg
-      {
-          width:30vw;
-          margin-left:-30vw;
-      }
-
-
-}
-
-
-@media (min-width: 1200px) {
-  body.trainershowinforow{
-    margin-top:6vh;
-    font-size:15vw;
-
-
-}
-.btn-lg
-      {
-          width:13vw;
-          margin-right:5vw;
-          margin-left:6vw;
-
-      }
-
-
-}
 
 
 .destroy
@@ -158,20 +147,12 @@
 }
    .trainershowwrapper{
      width: 100vw;
-     height: 90vh;
+     height: 150vh;
      background-size: cover;
      /*background-position: center;*/
      display: flex;
      justify-content: center;
      align-items: center;
-     /*background-color: red;*/
-   }    .trainershowcontainer{
-     width: 80%;
-     height: 80%;
-     background-color: rgba(224,224,224,.35);
-     padding: 30px;
-     border-radius: 10px;
-     overflow: hidden;
    }
 
    .trainershowsecondrow{
@@ -241,6 +222,8 @@ background-position:center;
      display: flex;
      align-items: flex-end;
    }
+
+
 
  </style>
 
