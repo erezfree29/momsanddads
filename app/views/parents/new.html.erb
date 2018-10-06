@@ -280,14 +280,22 @@ select.onchange = function () {
     }
 
     if ((inner != "gay couple") && (inner != 'lesbian couple')){
-
+      if (flag == "up") {
       form.removeChild(form.lastChild);
       form.removeChild(form.lastChild);
       form.removeChild(form.lastChild);
       flag = "down";
+
+      }
+
     }
 
+    if (flag == "down") {
 
+       let about = document.querySelector(".aboutpartner");
+       about.innerHTML = "";
+
+    }
 
 };
 
