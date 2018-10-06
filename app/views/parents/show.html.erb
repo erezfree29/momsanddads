@@ -31,7 +31,7 @@
          <div class="trainershowinforow"><div class="underline">Age:</div><%=@parent.age=%></div>
          <div class="trainershowinforow"><div class="underline">preferred co-parent:</div><%=@parent.intrested=%></div>
          <div class="trainershowinforow"><div class="underline">about me:</div></div><div class="white"><%=@parent.about=%></div>
-         <% if @parent.partner != ""%>
+         <% if @parent.partner != nil%>
             <div class="trainershowinforow"><div class="underline">about my partner:</div></div><div class="white"><%=@parent.partner=%></div>
          <%end%>
           <% if @parent.sorientation == "straight man"%> %>

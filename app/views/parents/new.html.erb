@@ -245,7 +245,7 @@ h3
 <script>
 
 
-let count = 0
+let flag = "down"
 let select = document.getElementsByTagName("select")[0];
 select.onchange = function () {
 
@@ -257,10 +257,11 @@ select.onchange = function () {
     form.appendChild(creatediv);
     creatediv.style.visibility = 'hidden';
     let inner = creatediv.innerHTML;
-    count +=1;
+    let banner = document.getElementById('home-banner');
+    banner.style.backgroundImage = "url('https://res.cloudinary.com/erezfriemagor/image/upload/v1538850886/child-childrens-baby-children-s.jpg')";
 
      if ((inner == "gay couple") || (inner == 'lesbian couple'))
-      if (count == 1) {
+      if (flag == "down") {
      {
      let inputfield = document.createElement("div");
      let textareafiled = document.createElement("textarea");
@@ -273,15 +274,17 @@ select.onchange = function () {
      form.appendChild(inputfield);
      textareafiled.name = "parent[partner]";
      form.appendChild(textareafiled);
+     flag = "up";
    }
 
     }
 
-    if (count > 1){
+    if ((inner != "gay couple") && (inner != 'lesbian couple')){
 
       form.removeChild(form.lastChild);
       form.removeChild(form.lastChild);
       form.removeChild(form.lastChild);
+      flag = "down";
     }
 
 
