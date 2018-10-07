@@ -22,6 +22,8 @@ gem "font-awesome-rails"
 gem 'cloudinary'
 gem 'carrierwave', '~> 1.2'
 gem 'materialize-sass', '~> 1.0.0'
+gem "geocoder"
+gem 'dotenv-rails', groups: [:development, :test]
 
 
 
