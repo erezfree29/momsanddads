@@ -31,8 +31,7 @@ skip_before_action :authenticate_user!
     @parent.user_id = @user.id
     @parent.address = @parent.countryname + " " + @parent.town + " " + @parent.neighborhood
 
-
-
+#
    end
   if @parent.save
     redirect_to parents_path(@parent)
