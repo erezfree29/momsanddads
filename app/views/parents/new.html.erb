@@ -238,6 +238,20 @@ h3
 
  }
 
+ .partner_photo
+ {
+  margin-top: 6px;
+  margin-left: 400px;
+  width:200px;
+ }
+
+ .req
+
+ {
+  margin-top: 23px;
+  margin-left: 397px;
+ }
+
 
 
 </style>
@@ -274,7 +288,42 @@ select.onchange = function () {
      form.appendChild(inputfield);
      textareafiled.name = "parent[partner]";
      form.appendChild(textareafiled);
-     flag = "up";
+
+
+     let photoinputfield = document.createElement("div");
+     photoinputfield.classList.add('input');
+     photoinputfield.classList.add('partner_photo');
+     let node2 = document.createTextNode("upload a photo of your partner\n");
+     photoinputfield.appendChild(node2);
+     form.appendChild(photoinputfield);
+     let required = document.createElement("div");
+     required.classList.add('form-group', 'file', 'required', 'parent_partner_photo');
+
+
+     let photoinput = document.createElement('input');
+     photoinput.classList.add('form-control-file', 'file', 'required', 'req');
+     photoinput.name = "parent[partner_photo]";
+     photoinput.id = "parent_partner_photo";
+     photoinput.type = "file";
+     required.appendChild(photoinput);
+     form.appendChild(required);
+
+
+
+
+     let hidden = document.createElement("div");
+     hidden.classList.add('form-group', 'hidden', 'parent_partner_photo_cache');
+     let photohiddeninput = document.createElement('input');
+     photohiddeninput.classList.add('form-control', 'hidden');
+     photohiddeninput.name = "parent[partner_photo_cache]";
+     photohiddeninput.id = "parent_partner_photo_cache";
+     photohiddeninput.type = "hidden";
+     hidden.appendChild(photohiddeninput);
+     form.appendChild(hidden);
+
+
+
+     flag = "up";s
    }
 
     }
@@ -301,6 +350,3 @@ select.onchange = function () {
 
 
 </script>
-
-
-

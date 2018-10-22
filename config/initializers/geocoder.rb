@@ -1,7 +1,7 @@
 Geocoder.configure(
   # Geocoding options
   # timeout: 3,                 # geocoding service timeout (secs)
-  # lookup: :google,            # name of geocoding service (symbol)
+  # lookup: :nominatim,         # name of geocoding service (symbol)
   # ip_lookup: :ipinfo_io,      # name of IP address geocoding service (symbol)
   # language: :en,              # ISO-639 language code
   # use_https: false,           # use HTTPS for lookup requests? (if supported)
@@ -19,12 +19,10 @@ Geocoder.configure(
   # Calculation options
   # units: :mi,                 # :km for kilometers or :mi for miles
   # distances: :linear          # :spherical or :linear
+
+  lookup: :google,
   units: :km,
-
-lookup:    :google,
-api_key:   ENV['AIzaSyBxWsCFvB_sXGD3FHb7h6PZqlY6rQuv2DI'],
-use_https: true,
-
-
+   api_key:"AIzaSyC3QqWWP3MZwPUpB-TLo-SIwxRcv6e8d3Q",
+  use_https: true,
 
 )

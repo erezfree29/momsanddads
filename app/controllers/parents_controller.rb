@@ -4,14 +4,6 @@ skip_before_action :authenticate_user!
  def index
 
   @parents = Parent.all
-
-  @markers = @parents.map do |parent|
-      {
-        lat: parent.latitude,
-        lng: parent.longitude#,
-        # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
-      }
-    end
  end
 
  def new
@@ -30,10 +22,9 @@ skip_before_action :authenticate_user!
     @user = current_user
     @parent.user_id = @user.id
     @parent.address = @parent.countryname + " " + @parent.town + " " + @parent.neighborhood
-
-#
    end
   if @parent.save
+
     redirect_to parents_path(@parent)
 
   else
@@ -61,7 +52,7 @@ private
 def parent_params
 
 
-  params.require(:parent).permit(:name, :sorientation, :photo, :countryname,:town, :neighborhood, :age, :intrested, :about, :partner, :longitude, :latitude, :address)
+  params.require(:parent).permit(:name, :sorientation, :photo, :countryname,:town, :neighborhood, :age, :intrested, :about, :partner, :longitude, :latitude, :address, :partner_photo)
 
  end
 

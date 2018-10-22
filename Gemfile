@@ -22,8 +22,9 @@ gem "font-awesome-rails"
 gem 'cloudinary'
 gem 'carrierwave', '~> 1.2'
 gem 'materialize-sass', '~> 1.0.0'
-gem "geocoder"
 gem 'dotenv-rails', groups: [:development, :test]
+gem "geocoder"
+gem "figaro"
 
 
 
@@ -37,6 +38,6 @@ group :development, :test do
   gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'dotenv-rails'
+
 end
 
