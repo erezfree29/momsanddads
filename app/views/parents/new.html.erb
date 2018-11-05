@@ -242,6 +242,7 @@ h3
  {
   margin-top: 6px;
   margin-left: 400px;
+  margin-bottom:40px;
   width:200px;
  }
 
@@ -288,8 +289,6 @@ select.onchange = function () {
      form.appendChild(inputfield);
      textareafiled.name = "parent[partner]";
      form.appendChild(textareafiled);
-
-
      let photoinputfield = document.createElement("div");
      photoinputfield.classList.add('input');
      photoinputfield.classList.add('partner_photo');
@@ -298,8 +297,6 @@ select.onchange = function () {
      form.appendChild(photoinputfield);
      let required = document.createElement("div");
      required.classList.add('form-group', 'file', 'required', 'parent_partner_photo');
-
-
      let photoinput = document.createElement('input');
      photoinput.classList.add('form-control-file', 'file', 'required', 'req');
      photoinput.name = "parent[partner_photo]";
@@ -307,10 +304,6 @@ select.onchange = function () {
      photoinput.type = "file";
      required.appendChild(photoinput);
      form.appendChild(required);
-
-
-
-
      let hidden = document.createElement("div");
      hidden.classList.add('form-group', 'hidden', 'parent_partner_photo_cache');
      let photohiddeninput = document.createElement('input');

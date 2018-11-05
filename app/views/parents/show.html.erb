@@ -14,11 +14,29 @@
 
 
 
+
    <%#= link_to "Delete this service", trainer_path(@trainer.id),
       method: :delete,
       data: { confirm: "Are you sure?" } %>
 
     </div>
+
+
+   <%if (@parent.partner_photo.file != nil)%>
+    <style>
+
+    .trainershowcircle
+
+    {
+
+    	margin-top:130px;
+    }
+
+  </style>
+     <div class="trainershowcircle small" style="background-image: url(<%=@parent.partner_photo%>)"></div>
+
+  <%end%>
+
          <div class="trainershowcircle" style="background-image: url(<%=@parent.photo%>)"></div>
        </div>
        <div class="trainershowinformations">
@@ -46,7 +64,7 @@
            <style> .underline{color:rgb(255, 102, 102);}</style>
            <% elsif @parent.sorientation == "gay man"%>
            <style> .underline{color:rgb(204, 0, 153);}</style>
-           <% elsif @parent.sorientation == "transgender man"%>
+           <% elsif @parent.sorientation == "transgender man"%>P
            <style> .underline{color:rgb(153, 153, 102);}</style>
            <%else%>
             <style> .underline{color:rgb(153, 0, 255);}</style>
@@ -54,13 +72,11 @@
        </div>
        </div>
      </div>
+
+
    </div>
  </div>
 
-
-
-
-<!-- trainer_review GET    /trainers/:trainer_id/reviews/:id(.:format)  -->
 
 
 <script>
@@ -75,6 +91,13 @@
 </script>
 
 <style>
+.small
+
+{
+  margin-bottom:-930px;
+
+}
+
 
 .white
 {

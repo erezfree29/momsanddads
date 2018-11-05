@@ -38,6 +38,7 @@ end
 def show
 
     @parent = Parent.find(params[:id])
+
 end
 
 def destroy
