@@ -114,7 +114,7 @@ config.action_mailer.perform_deliveries = true
       :domain               => 'gmail.com',
       :user_name            => 'erezfree29@gmail.com',
       :password             => 'Newblue29',
-      :authentication       => 'login',
+      :authentication       => 'plain',
       :enable_starttls_auto => true
   }
 # Send email in development mode?
