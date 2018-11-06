@@ -37,7 +37,6 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
   #
-  config.action_mailer.perform_deliveries = true
 
 
   # Print deprecation notices to the Rails logger.
@@ -70,4 +69,40 @@ Rails.application.configure do
   config.action_mailer.default_url_options =
       { :host => 'localhost:3000' }  #if it is local then 'localhost:3000'
 
+
+       config.action_mailer.raise_delivery_errors = true
+
+  # ActionMailer Config
+  config.action_mailer.delivery_method = :letter_opener
+
+# config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+# config.action_mailer.delivery_method = :smtp
+# SMTP settings for gmail
+  config.action_mailer.default_url_options = { :host => 'portal.herokuapp.com' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+      :address              => 'smtp.gmail.com',
+      :port                 => 587,
+      :domain               => 'gmail.com',
+      :user_name            => 'erezfree29@gmail.com',
+      :password             => 'Newblue29',
+      :authentication       => 'login',
+      :enable_starttls_auto => true
+  }
+# Send email in development mode?
+config.action_mailer.perform_deliveries = true
+
+
+
 end
+
+
+
+
+
+
+
+
+
+# I recommend using this line to show error
+

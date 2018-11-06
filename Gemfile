@@ -25,6 +25,7 @@ gem 'materialize-sass', '~> 1.0.0'
 gem 'dotenv-rails', groups: [:development, :test]
 gem "geocoder"
 gem "figaro"
+gem 'mailjet'
 
 
 
