@@ -105,7 +105,7 @@ config.action_mailer.perform_deliveries = true
       { :host => 'https://momsanddads.herokuapp.com' }  #if it is local then 'localhost:3000'
 
 
-
+  config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default_url_options = { :host => 'portal.herokuapp.com' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
