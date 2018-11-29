@@ -5,6 +5,17 @@
   someone right to have kids with</h2>
 
 
+<%= %>
+
+<%= form_tag parents_path, method: :get do %>
+
+  <%= select_tag(:countryname, options_for_select(@countrynames))%>
+  <%= text_field_tag :town, params[:town] %>
+  <%= text_field_tag :age, params[:age] %>
+  <%= submit_tag "Search", name: nil %>
+<% end %>
+
+
   <div class="row all_trainers">
     <% @parents.each do|parent|  %>
     <div class="col-xs-12 col-md-4 col-lg-2" style="margin-bottom: 20px;">
@@ -89,7 +100,7 @@ h2
 {
 
   margin-left:1500px;
-  margin-top:-800px;
+  margin-top:-1200px;
 
 }
 

@@ -264,7 +264,6 @@ let flag = "down"
 let select = document.getElementsByTagName("select")[0];
 select.onchange = function () {
 
-
     let creatediv = document.createElement('div');
     let selectnode = document.createTextNode(select.value);
     let form = document.querySelector('.simple_form');
@@ -313,31 +312,22 @@ select.onchange = function () {
      photohiddeninput.type = "hidden";
      hidden.appendChild(photohiddeninput);
      form.appendChild(hidden);
-
-
-
-     flag = "up";s
+     let about = document.querySelector(".aboutpartner");
+     about.innerHTML = "";
+     flag = "up";
    }
 
     }
 
     if ((inner != "gay couple") && (inner != 'lesbian couple')){
       if (flag == "up") {
-      form.removeChild(form.lastChild);
-      form.removeChild(form.lastChild);
-      form.removeChild(form.lastChild);
-      flag = "down";
+
+      location.reload();
 
       }
 
     }
 
-    if (flag == "down") {
-
-       let about = document.querySelector(".aboutpartner");
-       about.innerHTML = "";
-
-    }
 
 };
 

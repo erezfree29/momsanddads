@@ -3,7 +3,23 @@ class ParentsController < ApplicationController
 skip_before_action :authenticate_user!
  def index
 
+  @country = Countrie.all
+  @countrynames = []
+  @country.each do |c|
+
+   @countrynames << c.name
+
+  end
+
+  if params[:town].present?
+
+
+
+      params[:town].downcase!
+      @parents = Parent.where(town: params[:town],age: params[:age])
+    else
   @parents = Parent.all
+  end
  end
 
  def new
@@ -60,3 +76,7 @@ def parent_params
 end
 
 # //
+
+
+
+

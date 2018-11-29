@@ -8,6 +8,11 @@ class Parent < ApplicationRecord
   validates :user_id,:name,:sorientation,:photo,:countryname,:town,:neighborhood,:age,:intrested,:about,:address, presence: true
   validates :user_id, uniqueness: true
   after_validation :geocode, if: :will_save_change_to_address?
+  before_save :downcase_fields
+
+   def downcase_fields
+      self.town.downcase!
+   end
 
 end
 
