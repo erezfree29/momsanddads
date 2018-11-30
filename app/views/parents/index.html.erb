@@ -9,11 +9,13 @@
 
 <%= form_tag parents_path, method: :get do %>
   <div class="title country">country</div>
-  <%= select_tag(:country, options_for_select(@countrynames))%>
+  <%= select_tag(:country, options_for_select(@countrynames ,params[:country]))%>
   <div class="title town">town</div>
   <%= text_field_tag :town, params[:town] %>
   <div class="title age">age</div>
-  <%= text_field_tag :age, params[:age] %>
+  <%= select_tag(:age, options_for_select([['20-25'],['25-30'],['31-35'],['36-40'],['41-45'],['46-50'],['51-60'],['61-70'],['70+']] ,params[:age]))%>
+  <div class="title orientation">orientation</div>
+  <%= select_tag(:orientation, options_for_select([['straight man'],['straight woman'],['gay man'],['lesbian woman'],['gay couple'],['lesbian couple'],['transgender man'],['transgender woman'],['other'],['not known/open to ideas']] ,params[:orientation]))%>
   <%= submit_tag "Search", name: nil %>
 <% end %>
 
@@ -40,6 +42,7 @@
 
             visibility:hidden;
           }
+
         </style>
         <% end %>
         <% end %>
@@ -54,12 +57,14 @@
           }
       </style>
       <%end%>
+
+       <style></style>
+
       <%end%>
     </div>
   </div>
 </div>
 </div>
-
 <% end %>
 </div>
 
@@ -74,8 +79,9 @@
 
 @media (min-width:1200px){
 
+ .footer{visibility:hidden;}
 
-  .country{ margin-left:3px;}
+  .country{margin-left:3px;}
 
   #country{ margin-left:3px;}
 
@@ -90,6 +96,7 @@
   #town
   {
     margin-left:333px;
+    margin-right:40px;
   }
 
   .age
@@ -102,6 +109,18 @@
   #age
   {
    margin-left:596px;
+  }
+
+  .orientation
+
+  {
+    margin-left:688px;
+    margin-top:-68px;
+  }
+
+  #orientation
+  {
+   margin-left:688px;
   }
 
 
@@ -123,7 +142,7 @@
 
 h1{
 
-  padding-top:130px;
+  padding-top:25px;
   color:#ff66cc;
   font-size:120px;
 }
@@ -276,13 +295,3 @@ h2
 
 
 </style>
-
-
-
-
-
-
-
-<!--
-            1px;box-shadow: 5px 5px 5px;background-position: center; background-size: 100% 100%; background-size: 300px; width:300px;">
-          -->

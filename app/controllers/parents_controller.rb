@@ -16,7 +16,7 @@ skip_before_action :authenticate_user!
 
 
       params[:town].downcase!
-      @parents = Parent.where(town: params[:town],age: params[:age])
+      @parents = Parent.where(town: params[:town],age: params[:age],countryname: params[:country],sorientation: params[:orientation])
     else
   @parents = Parent.all
   end
