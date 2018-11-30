@@ -8,9 +8,11 @@
 <%= %>
 
 <%= form_tag parents_path, method: :get do %>
-
-  <%= select_tag(:countryname, options_for_select(@countrynames))%>
+  <div class="title country">country</div>
+  <%= select_tag(:country, options_for_select(@countrynames))%>
+  <div class="title town">town</div>
   <%= text_field_tag :town, params[:town] %>
+  <div class="title age">age</div>
   <%= text_field_tag :age, params[:age] %>
   <%= submit_tag "Search", name: nil %>
 <% end %>
@@ -71,6 +73,44 @@
 <style>
 
 @media (min-width:1200px){
+
+
+  .country{ margin-left:3px;}
+
+  #country{ margin-left:3px;}
+
+
+  .town
+
+  {
+    margin-left:333px;
+    margin-top:-68px;
+  }
+
+  #town
+  {
+    margin-left:333px;
+  }
+
+  .age
+
+  {
+    margin-left:596px;
+    margin-top:-68px;
+  }
+
+  #age
+  {
+   margin-left:596px;
+  }
+
+
+  .title
+
+  {
+   color:green;
+   font-size:20px;
+  }
 
 
  .index_banner
