@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_22_220321) do
+ActiveRecord::Schema.define(version: 2018_12_05_000241) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,14 @@ ActiveRecord::Schema.define(version: 2018_10_22_220321) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "receving_parent_id"
+    t.integer "sending_parent_id"
   end
 
   create_table "parents", force: :cascade do |t|
@@ -48,18 +56,6 @@ ActiveRecord::Schema.define(version: 2018_10_22_220321) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "table_received_messages", force: :cascade do |t|
-    t.string "message"
-    t.bigint "parents_id"
-    t.index ["parents_id"], name: "index_table_received_messages_on_parents_id"
-  end
-
-  create_table "table_sent_messages", force: :cascade do |t|
-    t.string "message"
-    t.bigint "parents_id"
-    t.index ["parents_id"], name: "index_table_sent_messages_on_parents_id"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -72,7 +68,7 @@ ActiveRecord::Schema.define(version: 2018_10_22_220321) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "messages", "parents", column: "receving_parent_id"
+  add_foreign_key "messages", "parents", column: "sending_parent_id"
   add_foreign_key "parents", "users"
-  add_foreign_key "table_received_messages", "parents", column: "parents_id"
-  add_foreign_key "table_sent_messages", "parents", column: "parents_id"
 end

@@ -16,7 +16,7 @@
     }
 
   </style>
-     <div class="trainershowcircle small" style="background-image: url(<%=@parent.partner_photo%>)"></div>
+     <div class="trainershowcircle small center" style="background-image: url(<%=@parent.partner_photo%>)"></div>
 
   <%end%>
 
@@ -55,9 +55,10 @@
        </div>
        </div>
      </div>
-
-
+           <div><%= link_to "send a message",  new_parent_message_path(@parent), class: "btn btn-primary align"%>
    </div>
+
+
  </div>
 
 
@@ -74,6 +75,16 @@
 </script>
 
 <style>
+.align
+{
+  margin-right:150px;
+}
+.center
+
+{
+margin-top:250px;
+
+}
 .small
 
 {

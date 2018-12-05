@@ -1,0 +1,9 @@
+<div>new</div>
+<div class="create_profile">
+   <%= simple_form_for Message.new do |f| %>
+   <div class="input">content</div>
+   <%= f.input :content,label: false%>
+    <div><%= f.button :submit,'submit', class: "btn-success training_btn"%><% end %>
+
+   </div>
+ </div>

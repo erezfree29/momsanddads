@@ -9,6 +9,8 @@ class Parent < ApplicationRecord
   validates :user_id, uniqueness: true
   after_validation :geocode, if: :will_save_change_to_address?
   before_save :downcase_fields
+  has_many :messages, foreign_key: 'receving_parent_id'
+  has_many :messages, foreign_key: 'sending_parent_id'
 
    def downcase_fields
       self.town.downcase!

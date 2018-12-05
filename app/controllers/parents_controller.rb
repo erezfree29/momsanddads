@@ -64,6 +64,10 @@ def destroy
 
 end
 
+def message
+
+end
+
 private
 
 def parent_params
@@ -73,9 +77,10 @@ def parent_params
 
  end
 
+
+
 end
 
-# //
 
 
 
