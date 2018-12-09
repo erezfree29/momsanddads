@@ -6,7 +6,7 @@ class Parent < ApplicationRecord
   mount_uploader :photo, PhotoUploader
   mount_uploader :partner_photo, PhotoUploader
   validates :user_id,:name,:sorientation,:photo,:countryname,:town,:neighborhood,:age,:intrested,:about,:address, presence: true
-  # validates :user_id, uniqueness: true
+  validates :user_id, uniqueness: true
   after_validation :geocode, if: :will_save_change_to_address?
   before_save :downcase_fields
   has_many :messages, foreign_key: 'receving_parent_id'
