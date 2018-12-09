@@ -1,16 +1,16 @@
 class MessagesController < ApplicationController
     def new
-
    @message = Message.new()
    @first_value = params[:parent_id]
+   @receving_parent = Parent.find(@first_value)
    session[:passed_variable] = @first_value
   end
 
   def create
    @first_value = session[:passed_variable]
-   @receving_parent = @first_value
+   @receving_parent_id = @first_value
    @message = Message.new(message_params)
-   @message.receving_parent_id = @receving_parent
+   @message.receving_parent_id = @receving_parent_id
    @parents = Parent.all
    @parents.each do |p|
     if p.user_id == current_user.id

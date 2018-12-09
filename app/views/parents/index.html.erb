@@ -7,7 +7,7 @@
 
 <%= %>
 
-<%= form_tag parents_path, method: :get do %>
+<%= form_tag parents_path,class: "search",method: :get do %>
   <div class="title country">country</div>
   <%= select_tag(:country, options_for_select(@countrynames ,params[:country]))%>
   <div class="title town">town</div>
@@ -49,7 +49,7 @@
       </div>
       <% if user_signed_in? == false%>
       <style>
-           .align
+      .align
 
            {
 
@@ -78,6 +78,10 @@
 <style>
 
 @media (min-width:1200px){
+
+.search{margin-top:-90px;
+margin-bottom:20px;}
+.all_trainers{margin-left:5px;}
 
  .footer{visibility:hidden;}
 
