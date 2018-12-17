@@ -31,6 +31,11 @@ class MessagesController < ApplicationController
 
   end
 
+   def inbox
+   @parent = Parent.find(params[:id])
+
+   end
+
  private
 
 def message_params

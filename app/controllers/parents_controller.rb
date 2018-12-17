@@ -13,8 +13,6 @@ skip_before_action :authenticate_user!
 
   if params[:town].present?
 
-
-
       params[:town].downcase!
       @parents = Parent.where(town: params[:town],age: params[:age],countryname: params[:country],sorientation: params[:orientation])
     else
@@ -44,6 +42,57 @@ skip_before_action :authenticate_user!
     redirect_to parents_path(@parent)
 
   else
+
+   if @parent.name == ""
+
+    flash.now[:alert] = 'please enter your name-'
+
+   end
+
+   if @parent.town == ""
+
+     if @parent.name == ""
+      flash.now[:alert]  <<  'please enter city/town-'
+     else
+      flash.now[:alert] = 'please enter city/town-'
+
+     end
+
+   end
+   if @parent.neighborhood == ""
+
+       if @parent.name == "" || @parent.town == ""
+       flash.now[:alert]  << 'please enter  a neighborhood-'
+      else
+       flash.now[:alert] = 'please enter a neighborhood-'
+    end
+
+   end
+
+   if @parent.photo.length == 0
+
+     if  @parent.name == "" ||  @parent.town == "" || @parent.neighborhood == ""
+       flash.now[:alert]  << 'please upload a photo-'
+     else
+
+       flash.now[:alert]  = 'please upload  a photo-'
+    end
+
+   end
+
+   if @parent.about == ""
+
+    if @parent.name == "" || @parent.town == "" ||  @parent.neighborhood == "" || @parent.photo.length == 0
+
+     flash.now[:alert]  << 'please tell us about yourself'
+
+      else
+
+      flash.now[:alert]  = 'please tell us about yourself'
+
+     end
+
+   end
 
      render :new
 
@@ -85,3 +134,57 @@ end
 
 
 
+#   if @trainer.save
+#     redirect_to trainer_path(@trainer)
+
+#   else
+
+#  if @trainer.hourly_rate == nil
+#     flash.now[:alert] = 'please enter a hourly_rate-'
+#   end
+
+
+
+#  if @trainer.address == ""
+
+#    if @trainer.hourly_rate == nil
+#     flash.now[:alert]  <<  'please enter an address-'
+#    else
+#     flash.now[:alert] = 'please enter an address-'
+#    end
+#   end
+
+
+#  if @trainer.address2 == ""
+
+#     if @trainer.hourly_rate == nil || @trainer.address == ""
+#     flash.now[:alert]  << 'please enter  a post code-'
+#    else
+#     flash.now[:alert] = 'please enter a post code-'
+#  end
+
+# end
+
+
+#  if @trainer.address3 == ""
+
+#   if  @trainer.hourly_rate == nil ||  @trainer.address == "" || @trainer.address2 == ""
+#     flash.now[:alert]  << 'please enter  a city-'
+#   else
+
+#     flash.now[:alert]  = 'please enter  a city-'
+#  end
+
+# end
+
+# if @trainer.photo.length == 0
+
+#  if @trainer.address3 == "" || @trainer.hourly_rate == nil ||  @trainer.address == "" || @trainer.address2 == ""
+
+#   flash.now[:alert]  << 'please upload a photo'
+
+#    else
+
+#    flash.now[:alert]  = 'please upload a photo'
+
+#   end

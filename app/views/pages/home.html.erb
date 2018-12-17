@@ -1,7 +1,9 @@
 
-<div class="banner" id="home-banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://res.cloudinary.com/erezfriemagor/image/upload/v1536598730/pexels-photo-225017_1.jpg');">
-  <center><h1>Moms and Dads</h1><
-  <h2>find someome right to have kids with</h2>
+<div class="banner"  style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://res.cloudinary.com/erezfriemagor/image/upload/v1536598730/pexels-photo-225017_1.jpg');">
+  <center><h1>The co-parenting<br>
+  dating website</h1>
+    <div id="subtitle">Moms and Dads<br>
+   find someome right to have kids with</div>
 
 
   <div><%= link_to "Find Out Who You Want To Raise Kids With", parents_path, class: 'btn btn-primary  btn-lg'%></div></center>
@@ -18,35 +20,45 @@
   margin-top:-20px;
 }
 
-
-
-
 @media (min-width:1200px){
-h2
+#subtitle
 {
 
   color: #66ccff;
   margin-bottom:90px;
+  text-decoration:underline;
+  font-size:40px;
+  margin-left:-600px;
 
 }
 
 h1{
-
+  margin-left:80px;
   padding-top:130px;
   color:#ff66cc;
   font-size:120px;
+  margin-bottom:5px;
+  margin-left:-600px;
 }
+.btn-lg
+{
+
+   margin-left:-600px;
+}
+
 
 }
 
-@media (max-width:1200px){
-h2
+@media only screen and (max-width: 1200px) and (min-width: 767px)  {...}{
+#subtitle
 {
 
   color: #66ccff;
   margin-bottom:90px;
   font-size:30px;
-  margin-left:-500px
+  margin-right:500px;
+  text-decoration:underline;
+
 
 }
 
@@ -54,7 +66,7 @@ h1{
 
   padding-top:130px;
   color:#ff66cc;
-  font-size:50px;
+  font-size:40px;
   margin-left:-550px
 }
 
@@ -68,13 +80,19 @@ h1{
 }
 
 @media (max-width:767px){
-  h2
+
+.banner
+{
+   background-size: 300px 600px;
+}
+  #subtitle
   {
 
     color: #66ccff;
-    margin-bottom:90px;
     font-size:15px;
     margin-left:-1600px
+
+
 
   }
 
@@ -84,6 +102,7 @@ h1{
     color:#ff66cc;
     font-size:30px;
     margin-left:-1600px
+
   }
 
   .btn-lg
@@ -91,6 +110,7 @@ h1{
 
     margin-left:-1600px;
     font-size:12px;
+    margin-top:50px;
 
 
   }
@@ -99,28 +119,6 @@ h1{
   }
 </style>
 
-
-<!--
-
-
-
-
-@media (max-width: 767px) {
-  266     .card1{
-  267        width:50vw;
-  ...
-  272  }
-  273
-  274: @media (min-width:767px)  {
-  275  .card1{
-  276        width:25vw;
-  ...
-  282  }
-  283
-  284: @media (min-width:1200px)  {
-  285  .card1{
-  286
- -->
 
 
 
