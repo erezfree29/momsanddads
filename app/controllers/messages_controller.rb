@@ -7,10 +7,14 @@ class MessagesController < ApplicationController
   end
 
   def create
+   @message = Message.new(message_params)
    @first_value = session[:passed_variable]
    @receving_parent_id = @first_value
+   @receving_parent = Parent.find(@receving_parent_id)
    @message = Message.new(message_params)
    @message.receving_parent_id = @receving_parent_id
+   @message.date = Date.today
+   @message.time = Time.now.strftime("%H:%M:%S")
    @parents = Parent.all
    @parents.each do |p|
     if p.user_id == current_user.id
@@ -31,10 +35,25 @@ class MessagesController < ApplicationController
 
   end
 
-   def inbox
-   @parent = Parent.find(params[:id])
+  def index
 
-   end
+ @parents = Parent.all
+ @parents.each do |p|
+  if p.user_id == current_user.id
+    @parent_id = p.id
+  end
+ end
+ @parents = Parent.all
+ @all_messages = Message.all
+ @parent_messages = []
+  @all_messages.each do |m|
+  if m.receving_parent_id == @parent_id
+   @parent_messages << m
+
+  end
+ end
+end
+
 
  private
 
@@ -47,3 +66,29 @@ def message_params
 
 
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
