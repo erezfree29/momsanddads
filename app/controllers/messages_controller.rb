@@ -36,7 +36,6 @@ class MessagesController < ApplicationController
   end
 
   def index
-
  @parents = Parent.all
  @parents.each do |p|
   if p.user_id == current_user.id
@@ -52,6 +51,9 @@ class MessagesController < ApplicationController
 
   end
  end
+end
+def show
+  @message = Message.find(params[:id])
 end
 
 
