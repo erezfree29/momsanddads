@@ -7,10 +7,10 @@
   </tr>
 <%@parent_messages.each do |m|%>
  <tr>
-    <td><%=@parents[m.sending_parent_id-1].name%></td>
-
+    <td><%=Parent.find(m.sending_parent_id).name%></td>
     <td> <%= link_to parent_path(m.sending_parent_id) do %>
-     <div class="trainershowcircle" style="background-image: url(<%=@parents[m.sending_parent_id-1].photo%>)"></div><%end%>
+     <div class="trainershowcircle" style="background-image: url(<%=Parent.find(m.sending_parent_id).photo%>)"></div><%end%>
+
    </td>
 
     <td> <%= link_to parent_message_path(m.receving_parent_id,m.id) do %>
@@ -34,9 +34,6 @@
    table{color:white;}
 
 </style>
-
-
-
 
 
 
