@@ -74,6 +74,4 @@ class User < ApplicationRecord
     save!(:validate => false)
  end
 
-
-
 end
