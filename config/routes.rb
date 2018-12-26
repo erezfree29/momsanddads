@@ -11,4 +11,10 @@ Rails.application.routes.draw do
    resources :messages,only: [:new,:create]
    resources :about,only: [:index]
 
+
+   resources :users do
+    member do
+      get :confirm_email
+    end
+  end
 end

@@ -2,41 +2,32 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+  :recoverable, :rememberable, :validatable
 
 
- PASSWORD_FORMAT = /\A
+  PASSWORD_FORMAT = /\A
   (?=.{8,})          # Must contain 8 or more characters
   (?=.*\d)           # Must contain a digit
   (?=.*[a-z])        # Must contain a lower case character
   (?=.*[A-Z])        # Must contain an upper case character
   (?=.*[[:^alnum:]]) # Must contain a symbol
-/x
+  /x
 
-validates :password,
+  validates :password,
   presence: true,
   length: { in: Devise.password_length },
   format: { with: PASSWORD_FORMAT },
   confirmation: true,
   on: :create
 
-validates :password,
+  validates :password,
   presence: true,
   length: { in: Devise.password_length },
   format: { with: PASSWORD_FORMAT },
   confirmation: true,
   on: :update
 
-
-def alerts
-
-
-
-end
-
-
-
-def self.find_first_by_auth_conditions warden_conditions
+  def self.find_first_by_auth_conditions warden_conditions
     conditions = warden_conditions.dup
     if (email = conditions.delete(:email)).present?
       where(email: email.downcase).first
@@ -45,45 +36,44 @@ def self.find_first_by_auth_conditions warden_conditions
     end
   end
 
+  before_create :confirmation_token
+  after_create :send_email_confirmation
+  after_create :welcome_send_email
 
- after_create :welcome_send_email
   def  welcome_send_email
-  WelcomeMailer.welcome_send(self).deliver
+
+    WelcomeMailer.welcome_send(self).deliver
 
   end
 
+  private
 
 
+  def send_email_confirmation
 
+        RegistrationMailer.registration_confirmation(self).deliver
+        # flash[:success] = "Please confirm your email address to continue"
+        # redirect_to root_url
+  end
+
+
+  def confirmation_token
+    if self.confirm_token.blank?
+      self.confirm_token = SecureRandom.urlsafe_base64.to_s
+    end
+  end
+
+  def send_email
+
+
+  end
+
+ def email_activate
+    self.email_confirmed = true
+    self.confirm_token = nil
+    save!(:validate => false)
  end
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#  def validate_password(password)
-
-#   reg = /^(?=.*\d)(?=.*([a-z]|[A-Z]))([\x20-\x7E]){8,40}$/
-
-# return (reg.match(password))? true : false
-
-# end
-
-
-# before_save :validate_password
+end
