@@ -5,3 +5,6 @@ class UserMailer < ActionMailer::Base
     @user = user
     mail(:to => "#{user.name} <#{user.email}>", :subject => "Registration Confirmation")
  end
+
+
+end
