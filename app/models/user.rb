@@ -37,7 +37,7 @@ class User < ApplicationRecord
   end
 
   before_create :confirmation_token
-  after_create :send_email_confirmation
+  # after_create :send_email_confirmation
   after_create :welcome_send_email
 
   def  welcome_send_email
@@ -52,8 +52,8 @@ class User < ApplicationRecord
   def send_email_confirmation
 
         RegistrationMailer.registration_confirmation(self).deliver
-        # flash[:success] = "Please confirm your email address to continue"
-        # redirect_to root_url
+
+
   end
 
 
@@ -75,3 +75,4 @@ class User < ApplicationRecord
  end
 
 end
+

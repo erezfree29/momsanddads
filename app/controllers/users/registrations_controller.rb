@@ -59,4 +59,26 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+
+def new
+
+    super
+
+  end
+
+  def create
+   super
+
+   if @user.save
+        RegistrationMailer.registration_confirmation(@user).deliver
+        flash[:success] = "Please confirm your email address to continue"
+      else
+        flash[:error] = "Ooooppss, something went wrong!"
+        #render 'new'
+      end
+
+
+ end
+
+
 end

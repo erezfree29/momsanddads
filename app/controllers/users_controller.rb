@@ -1,6 +1,4 @@
-class Users::UsersController < Devise::UsersController
-
-
+class UsersController < ApplicationController
   def new
 
     @user = User.new()
@@ -32,11 +30,5 @@ def user_params
   params.require(:parent).permit(:email, :encrypted_password)
 
  end
-
-end
-
-
-
-
 
 
