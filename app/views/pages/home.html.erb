@@ -7,9 +7,21 @@
 
   <div><%= link_to "Find Out Who You Want To Raise Kids With", parents_path, class: 'btn btn-primary  btn-lg'%></div></center>
 
+
+<% if user_signed_in? %>
+<% if current_user.email_confirmed != true%>
+ <div id="email">email not confirmed please confirm your email</div>
+<% end %>
+<% end %>
 </div>
 
+
+
 <style>
+#email
+{
+  color:red;
+}
 
 #home-banner
 

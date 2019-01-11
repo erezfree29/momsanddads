@@ -47,7 +47,7 @@
         <% end %>
         <% end %>
       </div>
-      <% if user_signed_in? == false%>
+      <% if user_signed_in? == false || current_user.email_confirmed != true%>
       <style>
       .align
 

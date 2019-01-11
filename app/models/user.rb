@@ -36,7 +36,7 @@ class User < ApplicationRecord
     end
   end
 
-  before_create :confirmation_token
+  before_create :confirmation_token_verify
   # after_create :send_email_confirmation
   after_create :welcome_send_email
 
@@ -51,13 +51,13 @@ class User < ApplicationRecord
 
   def send_email_confirmation
 
-        RegistrationMailer.registration_confirmation(self).deliver
+    RegistrationMailer.registration_confirmation(self).deliver
 
 
   end
 
 
-  def confirmation_token
+  def confirmation_token_verify
     if self.confirm_token.blank?
       self.confirm_token = SecureRandom.urlsafe_base64.to_s
     end

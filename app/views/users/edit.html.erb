@@ -1,0 +1,35 @@
+<h1>enter your token to complete registration</h1>
+
+ <%= simple_form_for current_user do |u| %>
+ <%= u.input :confirm_token,:label => false %>
+ <%= u.button :submit,'submit', class: "btn-success training_btn"%>
+<% end %>
+
+
+<script>
+
+   let confirm_token = document.getElementById("user_confirm_token");
+   confirm_token.value = ""
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

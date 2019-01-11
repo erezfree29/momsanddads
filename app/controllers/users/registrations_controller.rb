@@ -52,8 +52,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # The path used after sign up.
   # def after_sign_up_path_for(resource)
-  #   super(resource)
-  # end
+  #   redirect_to user_path(@user)
+  #  end
 
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)
@@ -68,17 +68,17 @@ def new
 
   def create
    super
-
-   if @user.save
-        RegistrationMailer.registration_confirmation(@user).deliver
-        flash[:success] = "Please confirm your email address to continue"
-      else
-        flash[:error] = "Ooooppss, something went wrong!"
-        #render 'new'
-      end
-
+   RegistrationMailer.registration_confirmation(@user).deliver
 
  end
 
+  # private
+  # def after_sign_up_path_for(user)
 
+  #  if @user.save
+
+
+  #     end
+  # end
 end
+

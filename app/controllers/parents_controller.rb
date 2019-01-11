@@ -113,9 +113,6 @@ def destroy
 
 end
 
-def message
-
-end
 
 private
 
