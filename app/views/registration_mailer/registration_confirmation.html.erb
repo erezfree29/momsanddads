@@ -2,6 +2,6 @@
 
 Thanks for registering! To confirm your registration click the URL below.
 
-<%= edit_user_url(User.last) %>  and enter your registration token
+<%= "http://www.momyandady.com/users/#{User.last.id}/edit"%>  and enter your registration token
 
 <%=User.last.confirm_token%>
