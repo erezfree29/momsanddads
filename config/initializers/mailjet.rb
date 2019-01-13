@@ -2,7 +2,7 @@
 Mailjet.configure do |config|
   config.api_key = '69c8854b6dacebbf78daff24f8be1680'
   config.secret_key = '0f51be3aec117eb1f699c4315432cbb5'
-  config.default_from = 'momsanddads@gmail.com'
+  config.default_from = 'momsandads@gmail.com'
   # Mailjet API v3.1 is at the moment limited to Send API.
   # We’ve not set the version to it directly since there is no other endpoint in that version.
   # We recommend you create a dedicated instance of the wrapper set with it to send your emails.
