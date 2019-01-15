@@ -1,1 +1,54 @@
-<%=@message.content%>
+<div class="index_banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://res.cloudinary.com/erezfriemagor/image/upload/v1547594461/pexels-photo-1688253.jpg');">
+<table>
+<tr>
+    <th>From</th>
+    <th>     </th>
+    <th>Received</th>
+  </tr>
+<tr>
+
+<td><%= link_to parent_path(@message.sending_parent_id) do %><%=Parent.find(@message.sending_parent_id).name%> </td><%end%>
+<td><%= link_to parent_path(@message.sending_parent_id) do %><div class="trainershowcircle" style="background-image: url(<%=Parent.find(@message.sending_parent_id).photo%>)"></div></td><%end%>
+<td> <%=@message.date%> <%=@message.time.hour%>:<%=@message.time.min%></td>
+</tr>
+</table>
+<div id="content">
+ <%=@message.content%>
+ </div>
+ <%= link_to "reply",new_parent_message_path(Parent.find(@message.sending_parent_id)), class: "btn btn-primary"%>
+</div>
+
+
+<style>
+.trainershowcircle {
+     position: relative;
+     border-radius: 49.99%;
+     width: 100px;
+     height: 100px;
+     background-size: cover;
+     border: solid 1px white;
+     box-shadow: 3px 3px 3px 3px;
+     margin-right:30px;
+   }
+table{margin-left:50px;}
+.index_banner{height:100vh;color:white;}
+#content{margin-left:30px;}
+.btn-primary{margin-left:200px;}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

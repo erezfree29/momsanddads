@@ -7,7 +7,7 @@
   </tr>
 <%@parent_messages.each do |m|%>
  <tr>
-    <td><%=Parent.find(m.sending_parent_id).name%></td>
+    <td><%= link_to parent_path(m.sending_parent_id) do %><%=Parent.find(m.sending_parent_id).name%></td><%end%>
     <td> <%= link_to parent_path(m.sending_parent_id) do %>
      <div class="trainershowcircle" style="background-image: url(<%=Parent.find(m.sending_parent_id).photo%>)"></div><%end%>
 
