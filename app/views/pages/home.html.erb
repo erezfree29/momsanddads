@@ -1,11 +1,11 @@
 
-<div class="banner"  style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://res.cloudinary.com/erezfriemagor/image/upload/v1536598730/pexels-photo-225017_1.jpg');">
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://res.cloudinary.com/erezfriemagor/image/upload/v1536598730/pexels-photo-225017_1.jpg');">
   <center><h1>The co-parenting<br>
   dating website</h1>
     <div id="subtitle">Moms and Dads<br>
    find someome right to have kids with</div>
 
-  <div><%= link_to "Find Out Who You Want To Raise Kids With", parents_path, class: 'btn btn-primary  btn-lg'%></div></center>
+  <div><%= link_to "Find Out Who You Want To Raise Kids With", parents_path, class: 'btn btn-primary  btn-lg',id: "target"%></div></center>
 
 
 <% if user_signed_in? %>
@@ -15,10 +15,28 @@
 <% end %>
 </div>
 
+ <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
 
 
 <style>
-#email
+
+
+h1:hover {color:#4b5e26;}
+#target:hover {color:#265b5e;}
+#subtitle
+{
+
+  color: #66ccff;
+  margin-bottom:90px;
+  text-decoration:underline;
+  font-size:40px;
+  margin-left:-600px;
+
+}
+
 {
   color:red;
 }
@@ -31,6 +49,7 @@
 }
 
 @media (min-width:1200px){
+#email
 #subtitle
 {
 
@@ -129,6 +148,56 @@ h1{
   }
 </style>
 
+<script>
+
+   $( document ).ready(function() {
+
+
+let current = 0;
+
+function nextBackground() {
+
+
+   if (current == 0)
+    {
+
+     $('.banner').css('background-image','url(https://res.cloudinary.com/erezfriemagor/image/upload/v1538850886/child-childrens-baby-children-s.jpg)');
+
+   }
+
+
+   else if (current ==1)
+    {
+
+     $('.banner').css('background-image','url(https://res.cloudinary.com/erezfriemagor/image/upload/v1547594461/pexels-photo-1688253.jpg)');
+
+}
+
+ else if (current == 2)
+    {
+
+    $('.banner').css('background-image','url(https://res.cloudinary.com/erezfriemagor/image/upload/v1547412209/pexels-photo-1462634.jpg)');
+
+}
+
+else
+{
+
+   $('.banner').css('background-image','url(https://res.cloudinary.com/erezfriemagor/image/upload/v1538658874/pexels-photo-1148998.jpg)');
+  current = 0;
+}
+
+current ++;
+
+
+}
+
+   setInterval(function(){nextBackground();},5000);
+
+
+  });
+
+</script>
 
 
 
