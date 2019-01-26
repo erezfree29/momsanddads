@@ -14,7 +14,12 @@ skip_before_action :authenticate_user!
   if params[:town].present?
 
       params[:town].downcase!
-      @parents = Parent.where(town: params[:town],age: params[:age],countryname: params[:country],sorientation: params[:orientation])
+
+
+      #@parents = Parent.where(town: params[:town],age: params[:age],countryname: params[:country],sorientation: params[:orientation])
+    #@parents = Parent.where("town LIKE '%?%' AND age = '?' AND countryname = '?'","#{params[:town]}",params[:age],params[:countryname])
+   @parents = Parent.where("age = ? AND town LIKE ? AND sorientation = ? AND countryname = ?","#{params[:age]}",
+    "%#{params[:town]}%","#{params[:orientation]}","#{params[:country]}")
     else
   @parents = Parent.all
   end
@@ -27,9 +32,7 @@ skip_before_action :authenticate_user!
   @parent.user_id = @user.id
   end
 
-
  end
-
  def create
    @parent = Parent.new(parent_params)
    if user_signed_in?
@@ -130,3 +133,7 @@ end
 
 
 
+ #@parents = Parent.where("town LIKE ? AND age LIKE ? AND
+      #countryname LIKE ? AND
+     # sorientation LIKE ?","%#{params[:town]}%","#{params[:age]}",
+      #{}"#{params[:countryname]}", "#{params[:sorientation]}")
