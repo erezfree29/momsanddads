@@ -7,9 +7,6 @@ def new
 end
 
 
-
-
-
 def edit
 
 end
@@ -24,6 +21,7 @@ def update
 
     @user.email_confirmed = true
     @user.save(:validate => false)
+    redirect_to parents_path
 
   else
 

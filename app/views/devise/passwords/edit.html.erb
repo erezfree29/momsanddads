@@ -1,3 +1,12 @@
+
+
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+
+  <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://res.cloudinary.com/erezfriemagor/image/upload/v1536598730/pexels-photo-225017_1.jpg');">
+
 <h2>Change your password</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
@@ -21,4 +30,58 @@
   </div>
 <% end %>
 
+ </div>
+
 <%= render "devise/shared/links" %>
+
+
+<script>
+
+   $( document ).ready(function() {
+
+
+let current = 0;
+
+function nextBackground() {
+
+
+   if (current == 0)
+    {
+
+     $('.banner').css('background-image','url(https://res.cloudinary.com/erezfriemagor/image/upload/v1538850886/child-childrens-baby-children-s.jpg)');
+
+   }
+
+
+   else if (current ==1)
+    {
+
+     $('.banner').css('background-image','url(https://res.cloudinary.com/erezfriemagor/image/upload/v1547594461/pexels-photo-1688253.jpg)');
+
+}
+
+ else if (current == 2)
+    {
+
+    $('.banner').css('background-image','url(https://res.cloudinary.com/erezfriemagor/image/upload/v1547412209/pexels-photo-1462634.jpg)');
+
+}
+
+else
+{
+
+   $('.banner').css('background-image','url(https://res.cloudinary.com/erezfriemagor/image/upload/v1538658874/pexels-photo-1148998.jpg)');
+  current = 0;
+}
+
+current ++;
+
+
+}
+
+   setInterval(function(){nextBackground();},5000);
+
+
+  });
+
+</script>
