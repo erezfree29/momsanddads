@@ -25,6 +25,7 @@ class User < ApplicationRecord
   length: { in: Devise.password_length },
   format: { with: PASSWORD_FORMAT },
   confirmation: true,
+  allow_nil: true,
   on: :update
 
   def self.find_first_by_auth_conditions warden_conditions

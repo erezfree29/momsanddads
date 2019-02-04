@@ -16,7 +16,12 @@ class Parent < ApplicationRecord
       self.town.downcase!
    end
 
+
 end
+
+
+
+
 
 
 

@@ -55,11 +55,13 @@
        </div>
        </div>
      </div>
-           <% if user_signed_in? %>
+           <% if user_signed_in?%>
+          <% if current_user.has_profile == true%>
          <% if @parent.user_id != current_user.id%><div>
           <%= link_to "send a message",  new_parent_message_path(@parent), class: "btn btn-primary align"%><%end%>
           <% if @parent.user_id == current_user.id%><div>
           <%= link_to "my messages",   parent_messages_path(@parent), class: "btn btn-primary align"%><%end%>
+          <%end%>
           <%end%>
    </div>
 
