@@ -21,8 +21,9 @@
                 required: true,
                 autofocus: true,
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation, label: "Confirm your new password", required: true %>
+                input_html:{ autocomplete: "new-password" ,:maxlength => 15, :size => 40} %>
+    <%= f.input :password_confirmation, label: "Confirm your new password", required: true ,
+    input_html: {:maxlength => 15, :size => 40}%>
   </div>
 
   <div class="form-actions">
@@ -31,6 +32,11 @@
 <% end %>
 
  </div>
+
+ <style>
+  .banner{margin-top:-24px;}
+  .form-group{width:350px;}
+ </style>
 
 <%= render "devise/shared/links" %>
 
