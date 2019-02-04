@@ -23,7 +23,7 @@ skip_before_action :authenticate_user!
 
  def new
   if user_signed_in?
-  current_user.update(has_profile: true,password:current_user.password)
+  current_user.update(has_profile:true)
   @user = current_user
   @parent = Parent.new()
   @parent.user_id = @user.id
@@ -34,7 +34,7 @@ skip_before_action :authenticate_user!
    @parent = Parent.new(parent_params)
 
    if user_signed_in?
-    current_user.update(has_profile: true,password:current_user.password)
+    current_user.update(has_profile: true)
     @user = current_user
     @parent.user_id = @user.id
     @parent.address = @parent.countryname + " " + @parent.town + " " + @parent.neighborhood
