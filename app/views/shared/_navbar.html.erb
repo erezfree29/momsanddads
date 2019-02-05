@@ -23,6 +23,9 @@
              <%= link_to parent_path(parent) do %>
                 <i class="fa fa-user"></i> <%= t(".profile", default: "Your Profile") %>
                 <% end %>
+              <%= link_to parent_messages_path(parent) do %>
+                <i class="fa fa-user"></i> <%= t(".profile", default: "Your messages") %>
+                <% end %>
               <% end %>
               <% end %>
             </li>
@@ -56,6 +59,11 @@
              <%= link_to parent_path(parent) do %>
                 <i class="fa fa-user"></i> <%= t(".profile", default: "Your Profile") %>
                 <% end %>
+
+                <%= link_to parent_messages_path(parent) do %>
+                <i class="fa fa-user"></i> <%= t(".profile", default: "Your messages") %>
+                <% end %>
+
               <% end %>
               <% end %>
               <% end %>

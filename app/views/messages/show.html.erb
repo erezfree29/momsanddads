@@ -1,4 +1,5 @@
 <div class="index_banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://res.cloudinary.com/erezfriemagor/image/upload/v1547594461/pexels-photo-1688253.jpg');">
+   <%if (Parent.find(@message.sending_parent_id).user_id != current_user.id )%>
 <table>
 <tr>
     <th>From</th>
@@ -12,11 +13,35 @@
 <td> <%=@message.date%> <%=@message.time.hour%>:<%=@message.time.min%></td>
 </tr>
 </table>
+<h3><%=Parent.find(@message.sending_parent_id).name%> said</h3>
 <div id="content">
  <%=@message.content%>
- </div>
+</div>
  <%= link_to "reply",new_parent_message_path(Parent.find(@message.sending_parent_id)), class: "btn btn-primary"%>
 </div>
+
+<%else%>
+
+<table>
+<tr>
+    <th>To</th>
+    <th>     </th>
+    <th>Sent</th>
+  </tr>
+<tr>
+
+<td><%= link_to parent_path(@message.receving_parent_id) do %><%=Parent.find(@message.receving_parent_id).name%> </td><%end%>
+<td><%= link_to parent_path(@message.receving_parent_id) do %><div class="trainershowcircle" style="background-image: url(<%=Parent.find(@message.receving_parent_id).photo%>)"></div></td><%end%>
+<td> <%=@message.date%> <%=@message.time.hour%>:<%=@message.time.min%></td>
+</tr>
+</table>
+<h3>you said</h3>
+<div id="content">
+ <%=@message.content%>
+<%end%>
+
+
+
 
 
 <style>

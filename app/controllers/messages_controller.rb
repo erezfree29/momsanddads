@@ -45,9 +45,12 @@ class MessagesController < ApplicationController
  @parents = Parent.all
  @all_messages = Message.all
  @parent_messages = []
+ @parent_sent_messages = []
   @all_messages.each do |m|
   if m.receving_parent_id == @parent_id
    @parent_messages << m
+  elsif m.sending_parent_id ==@parent_id
+     @parent_sent_messages << m
 
   end
  end
