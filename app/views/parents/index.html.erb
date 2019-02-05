@@ -1,4 +1,9 @@
 
+ <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+
 <div class="index_banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://res.cloudinary.com/erezfriemagor/image/upload/v1536598730/pexels-photo-225017_1.jpg');">
   <h1>Moms and Dads</h1><
   <h2>find out who else is looking for <br>
@@ -291,3 +296,59 @@ h2
 
 
 </style>
+
+<script>
+ $( document ).ready(function() {
+
+
+let current = 0;
+
+function nextBackground() {
+
+
+   if (current == 0)
+    {
+
+
+     $("h1").css("width","500px");
+     $(".index_banner").css("height","160vh");
+
+   }
+
+
+   else if (current ==1)
+    {
+
+     $("h1").css("width","650px");
+     $(".index_banner").css("height","140vh");
+}
+
+ else if (current == 2)
+    {
+
+   $("h1").css("width","800px");
+   $(".index_banner").css("height","130vh");
+}
+
+else
+{
+
+   $("h1").css("width","950px");
+   $(".index_banner").css("height","110vh");
+    current = -1;
+}
+
+current ++;
+
+
+}
+
+
+   setInterval(function(){nextBackground();},5000);
+
+
+  });
+
+
+
+</script>

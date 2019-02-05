@@ -162,6 +162,8 @@ function nextBackground() {
     {
 
      $('.banner').css('background-image','url(https://res.cloudinary.com/erezfriemagor/image/upload/v1538850886/child-childrens-baby-children-s.jpg)');
+     $("#subtitle").css("color", "red");
+     $("h1").css("color", "purple");
 
    }
 
@@ -170,13 +172,17 @@ function nextBackground() {
     {
 
      $('.banner').css('background-image','url(https://res.cloudinary.com/erezfriemagor/image/upload/v1547594461/pexels-photo-1688253.jpg)');
-
+     $("#subtitle").css("color", "yellow");
+     $("h1").css("color", "#f4e542");
 }
 
  else if (current == 2)
     {
 
     $('.banner').css('background-image','url(https://res.cloudinary.com/erezfriemagor/image/upload/v1547412209/pexels-photo-1462634.jpg)');
+    $("#subtitle").css("color", "green");
+
+
 
 }
 
@@ -184,7 +190,9 @@ else
 {
 
    $('.banner').css('background-image','url(https://res.cloudinary.com/erezfriemagor/image/upload/v1538658874/pexels-photo-1148998.jpg)');
-  current = 0;
+   $("#subtitle").css("color", "blue");
+   $("h1").css("color","#42f46e");
+  current = -1;
 }
 
 current ++;
@@ -192,10 +200,15 @@ current ++;
 
 }
 
+
    setInterval(function(){nextBackground();},5000);
 
 
   });
+
+
+
+
 
 </script>
 
