@@ -14,8 +14,15 @@ skip_before_action :authenticate_user!
   if params[:town].present?
 
    params[:town].downcase!
-   @parents = Parent.where("age = ? AND town LIKE ? AND sorientation = ? AND countryname = ?","#{params[:age]}",
+   @parents1  = Parent.where("age = ? AND town LIKE ? AND sorientation = ? AND countryname = ?","#{params[:age]}",
     "%#{params[:town]}%","#{params[:orientation]}","#{params[:country]}")
+
+   @parents2  = Parent.where("age = ? AND sorientation = ?
+      AND countryname = ?","#{params[:age]}","#{params[:orientation]}","#{params[:country]}").near("%#{params[:town]}%",params[:distance])
+
+  @parents = (@parents1 + @parents2).uniq
+
+
     else
   @parents = Parent.all
   end
@@ -128,5 +135,3 @@ def parent_params
 
 
 end
-
-
