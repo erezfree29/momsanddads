@@ -8,4 +8,9 @@ def configure_permitted_parameters
     devise_parameter_sanitizer.permit :account_update, keys: added_attrs
   end
 
+
+  def default_url_options
+  { host: ENV["HOST"] || "localhost:3000" }
+end
+
 end

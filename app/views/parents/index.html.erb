@@ -147,7 +147,7 @@ margin-bottom:20px;}
  {
 
   margin-top:-22px;
-  height:160vh;
+  height:auto;
 }
 
 h1{
@@ -176,7 +176,7 @@ h2
   {
 
     margin-top:-22px;
-    height:210vh;
+    height:auto;
   }
 
 
@@ -222,11 +222,13 @@ h2
   }
 
 
-  #home-banner
+  #index-banner
 
   {
 
     margin-top:-20px;
+    height:auto;
+    image-rendering: auto;
   }
 
   h1{
@@ -252,6 +254,7 @@ h2
 
     margin-left:-1680px;
     margin-top:-650px;
+
 
   }
   @media (max-width:767px){
@@ -281,6 +284,7 @@ h2
 
       margin-left:50px;
       margin-top:-3600px;
+
 
     }
 
@@ -315,8 +319,9 @@ function nextBackground() {
 
 
      $("h1").css("width","500px");
-     $(".index_banner").css("height","190vh");
      $("h2").css("visibility","hidden");
+     $("h2").css("margin-top","-140px");
+
 
    }
 
@@ -325,16 +330,17 @@ function nextBackground() {
     {
 
      $("h1").css("width","650px");
-     $(".index_banner").css("height","180vh");
      $("h2").css("visibility","visible");
+     $("h2").css("margin-top","10px");
+
 }
 
  else if (current == 2)
     {
 
    $("h1").css("width","800px");
-   $(".index_banner").css("height","170vh");
    $("h2").css("visibility","hidden");
+   $("h2").css("margin-top","-140px");
 
 }
 
@@ -342,8 +348,8 @@ else
 {
 
    $("h1").css("width","950px");
-   $(".index_banner").css("height","160vh");
    $("h2").css("visibility","visible");
+   $("h2").css("margin-top","10px");
     current = -1;
 }
 

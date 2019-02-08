@@ -7,7 +7,6 @@
 
   <div><%= link_to "Find Out Who You Want To Raise Kids With", parents_path, class: 'btn btn-primary  btn-lg',id: "target"%></div></center>
 
-
 <% if user_signed_in? %>
 <% if current_user.email_confirmed != true%>
  <div id="email">email not confirmed please confirm your email</div>
@@ -50,6 +49,7 @@ h1:hover {color:#4b5e26;}
 
 @media (min-width:1200px){
 #email
+
 #subtitle
 {
 
@@ -57,7 +57,7 @@ h1:hover {color:#4b5e26;}
   margin-bottom:90px;
   text-decoration:underline;
   font-size:40px;
-  margin-left:-600px;
+
 
 }
 
@@ -91,6 +91,7 @@ h1{
 
 }
 
+
 h1{
 
   padding-top:130px;
@@ -113,13 +114,19 @@ h1{
 .banner
 {
    background-size: 600px 800px;
+   width: 300px;
+   height: 800px;
+
+
+
 }
   #subtitle
   {
 
     color: #66ccff;
     font-size:15px;
-    margin-left:-1600px
+    margin-left:-10px;
+
 
 
 
@@ -130,14 +137,14 @@ h1{
     padding-top:130px;
     color:#ff66cc;
     font-size:30px;
-    margin-left:-1600px
+     margin-left:-10px;
 
   }
 
   .btn-lg
   {
 
-    margin-left:-1600px;
+    margin-left:-10px;
     font-size:12px;
     margin-top:50px;
 
@@ -164,6 +171,9 @@ function nextBackground() {
      $('.banner').css('background-image','url(https://res.cloudinary.com/erezfriemagor/image/upload/v1538850886/child-childrens-baby-children-s.jpg)');
      $("#subtitle").css("color", "red");
      $("h1").css("color", "purple");
+     $("#email").css("color", "red");
+     $("#email").css("font-size", "50px");
+
 
    }
 
@@ -174,6 +184,7 @@ function nextBackground() {
      $('.banner').css('background-image','url(https://res.cloudinary.com/erezfriemagor/image/upload/v1547594461/pexels-photo-1688253.jpg)');
      $("#subtitle").css("color", "yellow");
      $("h1").css("color", "#f4e542");
+     $("#email").css("font-size", "40px");
 }
 
  else if (current == 2)
@@ -181,6 +192,7 @@ function nextBackground() {
 
     $('.banner').css('background-image','url(https://res.cloudinary.com/erezfriemagor/image/upload/v1547412209/pexels-photo-1462634.jpg)');
     $("#subtitle").css("color", "green");
+     $("#email").css("font-size", "30px");
 
 
 
@@ -192,6 +204,7 @@ else
    $('.banner').css('background-image','url(https://res.cloudinary.com/erezfriemagor/image/upload/v1538658874/pexels-photo-1148998.jpg)');
    $("#subtitle").css("color", "blue");
    $("h1").css("color","#42f46e");
+    $("#email").css("font-size", "25px");
   current = -1;
 }
 
