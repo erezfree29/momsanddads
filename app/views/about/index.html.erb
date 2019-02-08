@@ -1,7 +1,14 @@
-
+<!--
 <script src="https://unpkg.com/react@15.3.2/dist/react.js"></script>
 <script src="https://unpkg.com/react-dom@15.3.2/dist/react-dom.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.14.0/babel.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.14.0/babel.min.js"></script> -->
+
+
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+
 <div class="banner" id="home-banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://res.cloudinary.com/erezfriemagor/image/upload/v1536598730/pexels-photo-225017_1.jpg');">
 
  <center><h1>About Us</h1></center>
@@ -64,3 +71,33 @@ p
 
 
 </style>
+
+<script>
+let state  = "false";
+$( document ).ready(function() {
+
+   function bold() {
+     if (state == "false"){
+      $("h1").css("font-weight","bold");
+      state = "true"
+
+    }
+
+    else
+    {
+
+     $("h1").css("font-weight","normal");
+     state = "false"
+
+    }
+
+
+     }
+
+
+   setInterval(function(){bold();},5000);
+
+
+  });
+
+</script>
