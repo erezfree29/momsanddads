@@ -1,0 +1,23 @@
+
+<div class="index_banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://res.cloudinary.com/erezfriemagor/image/upload/v1545252788/pexels-photo-235554.jpg');">
+<h1>Purchase of subscription</h1>
+<%= form_tag order_payments_path(@order) do %>
+  <article>
+    <label class="amount">
+      <span>Amount: <%= humanized_money_with_symbol(@order.amount) %></span>
+    </label>
+  </article>
+
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+    data-name="My Subscription"
+    data-email="<%= current_user.email %>"
+    data-amount="<%= @order.amount_cents %>"
+    data-currency="<%= @order.amount.currency %>"></script>
+ <% end %>
+</div>
+
+<style>
+
+  .index_banner{height:100vh;margin-top:-23px;}
+</style>

@@ -24,6 +24,25 @@
 
 
 h1:hover {color:#4b5e26;}
+
+h1{
+
+-webkit-transition: -webkit-transform 0.4s ease-out;
+
+-moz-transition: -moz-transform 0.4s ease-out;
+
+transition: transform 0.4s ease-out;
+
+
+
+-webkit-transform: rotateZ(360deg);
+
+-moz-transform: rotateZ(360deg);
+
+transform: rotateZ(360deg);
+}
+
+
 #target:hover {color:#265b5e;}
 #subtitle
 {
@@ -36,10 +55,6 @@ h1:hover {color:#4b5e26;}
 
 }
 
-{
-  color:red;
-}
-
 .banner
 
 {
@@ -48,7 +63,6 @@ h1:hover {color:#4b5e26;}
 }
 
 @media (min-width:1200px){
-#email
 
 #subtitle
 {
@@ -58,10 +72,11 @@ h1:hover {color:#4b5e26;}
   text-decoration:underline;
   font-size:40px;
 
-
 }
 
+
 h1{
+
   margin-left:80px;
   padding-top:130px;
   color:#ff66cc;
@@ -72,13 +87,26 @@ h1{
 .btn-lg
 {
 
+-webkit-transition: -webkit-transform 0.4s ease-out;
+
+-moz-transition: -moz-transform 0.4s ease-out;
+
+transition: transform 0.4s ease-out;
+
+
+
+-webkit-transform: rotateZ(360deg);
+
+-moz-transform: rotateZ(360deg);
+
+transform: rotateZ(360deg);
    margin-left:-600px;
 }
 
 
 }
 
-@media only screen and (max-width: 1200px) and (min-width: 767px)  {...}{
+@media only screen and (max-width: 1200px) and (min-width: 767px)  {
 #subtitle
 {
 
@@ -173,7 +201,7 @@ function nextBackground() {
      $("h1").css("color", "purple");
      $("#email").css("color", "red");
      $("#email").css("font-size", "50px");
-
+     $("#target").css("width", "700x");
 
    }
 
@@ -185,6 +213,7 @@ function nextBackground() {
      $("#subtitle").css("color", "yellow");
      $("h1").css("color", "#f4e542");
      $("#email").css("font-size", "40px");
+     $("#target").css("width", "600x");
 }
 
  else if (current == 2)
@@ -193,7 +222,7 @@ function nextBackground() {
     $('.banner').css('background-image','url(https://res.cloudinary.com/erezfriemagor/image/upload/v1547412209/pexels-photo-1462634.jpg)');
     $("#subtitle").css("color", "green");
      $("#email").css("font-size", "30px");
-
+     $("#target").css("width", "500px");
 
 
 }
@@ -205,6 +234,7 @@ else
    $("#subtitle").css("color", "blue");
    $("h1").css("color","#42f46e");
     $("#email").css("font-size", "25px");
+    $("#target").css("width", "500px");
   current = -1;
 }
 

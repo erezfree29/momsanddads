@@ -19,4 +19,12 @@ Rails.application.routes.draw do
       get :confirm_email
     end
   end
+
+resources :orders, only: [:show, :create] do
+  resources :payments, only: [:new, :create]
+end
+
+resources :subscriptions
+
+resources :orders, only: [:show, :create]
 end
