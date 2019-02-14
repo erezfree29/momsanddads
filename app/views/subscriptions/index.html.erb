@@ -12,7 +12,7 @@
 
     </tr>
    <tr>
-    <% @subscriptions.each do |subscription| %>
+    <% =@subscriptions.each do |subscription| %>
     <td><%= link_to "purchase", subscription_path(subscription),class: "btn-primary btn-lg"%></td>
     <% end %>
     <tr>
