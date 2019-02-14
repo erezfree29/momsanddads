@@ -17,16 +17,22 @@
       <div class="dropdown">
         <%= image_tag "https://images.pexels.com/photos/789786/pexels-photo-789786.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+<!--
           <li>
-           <%if current_user.subscription_id == nil%>
-           <%= link_to subscriptions_path do %>
+           <%#if current_user.subscription_id == nil%>
+           <%#= link_to subscriptions_path do %>
            <i class="fa fa-user"></i> <%= t(".profile", default: "Your Account") %>
-            <% end %>
-            <%else%>
+            <% #end %>
+            <%#else%>
              <%= link_to subscription_path(current_user.subscription_id) do %>
                 <i class="fa fa-user"></i> <%= t(".profile", default: "Your Account") %>
-              <% end %>
-           <% end %>
+              <% #end %>
+           <%# end %> -->
+
+
+
+
+
            <% Parent.all.each do |parent|%>
            <%if current_user.id == parent.user_id%>
            <%= link_to parent_path(parent) do %>
@@ -62,15 +68,22 @@
       <!-- <li><%#= link_to "about us", about_index_path, class: "navbar-wagon-item navbar-wagon-link" %></li> -->
       <li>
        <% if user_signed_in? %>
-         <%if current_user.subscription_id == nil%>
+<!--
+         <%#if current_user.subscription_id == nil%>
            <%= link_to subscriptions_path do %>
            <i class="fa fa-user"></i> <%= t(".profile", default: "Your Account") %>
-            <% end %>
-            <%else%>
-             <%= link_to subscription_path(current_user.subscription_id) do %>
+            <%#end %>
+            <%#else%>
+             <%=#link_to subscription_path(current_user.subscription_id) do %>
                 <i class="fa fa-user"></i> <%= t(".profile", default: "Your Account") %>
-              <% end %>
-           <% end %>
+              <%# end %>
+           <%# end %>
+ -->
+
+
+
+
+
        <% Parent.all.each do |parent|%>
        <%if current_user.id == parent.user_id%>
        <%= link_to parent_path(parent) do %>
