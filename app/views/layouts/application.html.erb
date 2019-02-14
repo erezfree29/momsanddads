@@ -12,9 +12,9 @@
   </head>
   <body>
 
-      <% unless controller_name == "pages"%>
+      <%# unless controller_name == "pages"%>
     <%= render 'shared/navbar' %>
-    <% end %>
+    <% #end %>
     <%= render 'shared/flashes' %>
     <%= yield %>
     <%= render 'shared/footer' %>
