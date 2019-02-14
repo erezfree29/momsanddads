@@ -22,12 +22,16 @@
 
 
 <!-- add here  -->
+          <li>
+           <%if current_user.subscription_id == nil%>
+           <%= link_to subscriptions_path do %>
 
-
-
-
-
-
+           <i class="fa fa-user"></i> <%= t(".profile", default: "Your Account") %>
+            <% end %>
+            <%else%>
+             <%= link_to subscription_path(current_user.subscription_id) do %>
+              <% end %>
+           <% end %>
 
 
 
@@ -67,6 +71,17 @@
       <!-- <li><%#= link_to "about us", about_index_path, class: "navbar-wagon-item navbar-wagon-link" %></li> -->
       <li>
        <% if user_signed_in? %>
+           <%if current_user.subscription_id == nil%>
+           <%= link_to subscriptions_path do %>
+
+           <i class="fa fa-user"></i> <%= t(".profile", default: "Your Account") %>
+            <% end %>
+            <%else%>
+             <%= link_to subscription_path(current_user.subscription_id) do %>
+              <% end %>
+           <% end %>
+
+
        <% Parent.all.each do |parent|%>
        <%if current_user.id == parent.user_id%>
        <%= link_to parent_path(parent) do %>
