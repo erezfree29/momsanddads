@@ -25,16 +25,13 @@
           <li>
            <%if current_user.subscription_id == nil%>
            <%= link_to subscriptions_path do %>
-
-           <i class="fa fa-user"></i> <%= t(".profile", default: "Your Account") %>
+            <i class="fa fa-user"></i> <%= t(".profile", default: "Your Account") %>
             <% end %>
             <%else%>
-             <%= link_to subscription_path(current_user.subscription_id) do %>
+             <%= link_to subscriptions_path  do %>
+             <i class="fa fa-user"></i> <%= t(".profile", default: "Your Account") %>
               <% end %>
            <% end %>
-
-
-
 
            <% Parent.all.each do |parent|%>
            <%if current_user.id == parent.user_id%>
@@ -77,7 +74,8 @@
            <i class="fa fa-user"></i> <%= t(".profile", default: "Your Account") %>
             <% end %>
             <%else%>
-             <%= link_to subscription_path(current_user.subscription_id) do %>
+             <%= link_to subscriptions_path do %>
+               <i class="fa fa-user"></i> <%= t(".profile", default: "Your Account") %>
               <% end %>
            <% end %>
 

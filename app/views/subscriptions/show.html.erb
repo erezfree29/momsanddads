@@ -1,6 +1,6 @@
 <div class="index_banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://res.cloudinary.com/erezfriemagor/image/upload/v1545252788/pexels-photo-235554.jpg');">
 <% if user_signed_in? %>
- <%if current_user.subscription_id == nil%>
+ <%if current_user.subscription_start_date == nil%>
   <h1> purchase of <%=@subscription.length%> of membership</h1>
   <%= form_tag orders_path do %>
   <%= hidden_field_tag 'subscription_id', @subscription.id %>
