@@ -1,9 +1,22 @@
 Rails.configuration.stripe = {
-  publishable_key: "pk_live_L4Sp2lyU6A17gMe6zT1zrPRD
+  publishable_key: "pk_live_0gnegthdog98gDfM9PK8l3kd",
+  secret_key:      "sk_live_iDGjvwl0tSByVnXUwUkwBy90"
 
-",
-
-  secret_key:      "sk_live_GlpnjOwucvsMLjD0wqATFcKt"
 }
 
 Stripe.api_key = Rails.configuration.stripe[:secret_key]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
